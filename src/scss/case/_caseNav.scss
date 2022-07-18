@@ -1,0 +1,62 @@
+.caseNav {
+  @extend %reset;
+  @extend %row;
+  align-items: center;
+  width: 100%;
+  &__arrows {
+    @extend %reset;
+    @extend %row;
+    margin-right: 20px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-right: 16px;
+    }
+  }
+  &__arrow {
+    @extend %reset;
+    @extend %click;
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba($colorDark, 0.2);
+    transition: $trans;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 46px;
+      height: 46px;
+    }
+    &._disable {
+      transform: rotate(90deg);
+    }
+    & + & {
+      margin-left: 10px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-left: 8px;
+      }
+    }
+    &Icon {
+      @extend %reset;
+      width: 10px;
+      height: 10px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+  &__content {
+    @extend %reset;
+    font-size: 24px;
+    font-family: "Medium";
+    color: $colorDark;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 300px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 14px;
+      line-height: 1.2;
+      width: 160px;
+    }
+  }
+}

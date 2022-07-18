@@ -1,0 +1,222 @@
+.portfolioHeader {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 286px 0 200px 0;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 250px 0 150px 0;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding: 210px 0 100px 0;
+    overflow: hidden;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 130px 0 74px 0;
+    overflow: hidden;
+  }
+  &__pagenation {
+    @extend %pagenation;
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__head {
+    @extend %reset;
+    width: 550px;
+    margin-bottom: 84px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 600px;
+      margin-bottom: 60px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 100%;
+      max-width: 590px;
+      padding: 0 60px;
+      margin-bottom: 50px;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-left: -3px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 32px;
+      margin-left: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 26px;
+      margin-left: 0;
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 18px;
+    font-family: "Regular";
+    line-height: 1.3;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 14px;
+    }
+    &._hard {
+      color: #9a52fd;
+      font-family: "Bold";
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 18px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 16px;
+      }
+    }
+    & + & {
+      margin-top: 12px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-top: 16px;
+      }
+    }
+  }
+  &__tabs {
+    @extend %reset;
+    @extend %row;
+    width: 100%;
+    margin-bottom: 50px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 800px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 20px;
+    }
+    &Content {
+      @extend %reset;
+      width: 100%;
+      @extend %col;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        align-items: center;
+      }
+    }
+    &Box {
+      width: 100%;
+      @extend %col;
+      @extend %reset;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        overflow-x: auto;
+        width: 100vw;
+        // width: 100%;
+      }
+    }
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 108px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 80px 20px 80px;
+      margin: 0 auto;
+      margin-bottom: 52px;
+      display: inline-flex;
+      width: auto;
+    }
+    @include media(0, $mediaMobile) {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      overflow-x: auto;
+      padding: 0 20px 40px 20px;
+    }
+  }
+  &__tab {
+    @extend %reset;
+    & + & {
+      margin-left: 30px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-left: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-left: 20px;
+      }
+    }
+    &Input {
+      display: none;
+    }
+    &View {
+      @extend %reset;
+      @extend %row;
+      @extend %click;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      padding: 12px 40px;
+      border-radius: 20px;
+      font-size: 26px;
+      font-family: "Bold";
+      color: $colorDark;
+      transition: $trans;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 22px;
+        height: 60px;
+        white-space: nowrap;
+        padding: 12px 32px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 22px;
+        height: 60px;
+        white-space: nowrap;
+      }
+      @include mediaMin($mediaMobileEnd) {
+        &:hover {
+          color: $colorMain;
+        }
+      }
+    }
+    &Input:checked ~ &View {
+      color: $colorMain;
+      box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1),
+        0px 10px 10px rgba(0, 0, 0, 0.04);
+    }
+    &._marketplace &View {
+      background: #e5e7f9;
+    }
+    &._online_store &View {
+      background: #faecfc;
+    }
+    &._ai &View {
+      background: #bfdfe6;
+    }
+  }
+  &__items {
+    @extend %reset;
+    width: 100%;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 110px 0 60px;
+    }
+  }
+  &__item {
+    @extend %reset;
+    width: 100%;
+    height: 730px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 700px;
+    }
+    @include media(0, $mediaMobile) {
+      height: auto;
+    }
+    & + & {
+      margin-top: 50px;
+    }
+  }
+}

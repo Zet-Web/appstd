@@ -1,0 +1,129 @@
+.indexClients {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 40px 0 64px 0;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding-top: 30px;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 32px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__title {
+    @extend %reset;
+    @extend %innerMedium;
+    max-width: 100%;
+    margin-bottom: 100px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 88px;
+      padding: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 44px;
+    }
+  }
+  &__slider {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+    height: 236px;
+    overflow: hidden;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      height: 170px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 134px;
+    }
+    @include media(0, $mediaMobile) {
+      height: 94px;
+      padding-left: 20px;
+    }
+    &Items {
+      @extend %reset;
+      display: inline-flex;
+      height: 100%;
+      will-change: transform;
+    }
+    &Item {
+      @extend %reset;
+      @extend %col;
+      justify-content: center;
+      align-items: center;
+      width: 18vw;
+      height: 100%;
+      border-radius: 80px;
+      background: #fff;
+      margin-right: 2.5vw;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        border-radius: 50px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 31vw;
+        margin-right: 3.5vw;
+        border-radius: 60px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 138px;
+        margin-right: 20px;
+        border-radius: 40px;
+      }
+      &Image {
+        @extend %reset;
+        object-fit: contain;
+        will-change: transform;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          transform: scale(0.8);
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          transform: scale(0.8);
+        }
+        @include media(0, $mediaMobile) {
+          transform: scale(0.5);
+        }
+      }
+      &._merod &Image {
+        width: 110px;
+        height: 100px;
+      }
+      &._lex &Image {
+        width: 106px;
+        height: 38px;
+      }
+      &._plonq &Image {
+        width: 150px;
+        height: 30px;
+      }
+      &._rjd &Image {
+        width: 200px;
+        height: 32px;
+      }
+      &._eatRepeat &Image {
+        width: 160px;
+        height: 84px;
+      }
+      &._inClik &Image {
+        width: 170px;
+        height: 60px;
+      }
+      &._aParty &Image {
+        width: 70px;
+        height: 120px;
+      }
+      &._smyslografia &Image {
+        width: 130px;
+        height: 108px;
+      }
+      &._mercada &Image {
+        width: 140px;
+        height: 128px;
+      }
+    }
+  }
+}

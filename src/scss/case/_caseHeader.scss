@@ -1,0 +1,342 @@
+.caseHeader {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: $paddingHead 0 156px 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 240px 0 140px 0;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding: 190px 0 100px 0;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 140px 0 128px 0;
+  }
+  &__back {
+    @extend %reset;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 750px;
+    height: 800px;
+    object-fit: contain;
+    z-index: -1;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 620px;
+      height: 650px;
+      right: -50px;
+      top: 70px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 420px;
+      height: 420px;
+      top: 20px;
+      right: -68px;
+    }
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+    &Bg {
+      position: absolute;
+      top: 0px;
+      right: -100px;
+      width: 830px;
+      height: 410px;
+      transform: translate(100%, -100%) rotate(-40deg);
+      z-index: -1;
+      transition: 0.6s ease-in-out;
+      transition-delay: 0.1s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        right: -160px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 600px;
+        height: 300px;
+      }
+      &Inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 220px;
+      }
+    }
+    &Item {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transition: $trans;
+      transition-delay: 0.5s;
+      &Inner {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  &._isAnimate &__back {
+    &Bg {
+      transform: rotate(-40deg);
+    }
+    &Item {
+      opacity: 1;
+    }
+  }
+  &._marketplace &__back {
+    width: 400px;
+    height: 440px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 340px;
+      height: 380px;
+    }
+    &BgInner {
+      background: rgba(#d7effe, 0.5);
+    }
+    &Item {
+      margin: 164px 0 0 -274px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 52px 0 0 -130px;
+      }
+    }
+  }
+  &._onlineShop &__back {
+    width: 674px;
+    height: 366px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 400px;
+      height: 300px;
+    }
+    &BgInner {
+      background: rgba(#ffc1c7, 0.5);
+    }
+    &Item {
+      margin: 194px 0 0 -174px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        margin: 160px 0 0 -50px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 82px 0 0 -130px;
+      }
+    }
+  }
+  &._intelligence &__back {
+    width: 456px;
+    height: 408px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 400px;
+      height: 300px;
+    }
+    &BgInner {
+      background: rgba(#e9eef3, 0.5);
+    }
+    &Item {
+      margin: 144px 0 0 -234px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        margin: 144px 0 0 -170px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 92px 0 0 -110px;
+      }
+    }
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+    position: relative;
+  }
+  &__content {
+    @extend %reset;
+    width: 100%;
+    max-width: 770px;
+    position: relative;
+    margin-bottom: 124px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 144px;
+      max-width: 550px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 520px;
+      padding: 0 60px;
+      margin-bottom: 84px;
+    }
+  }
+  &__pagenation {
+    @extend %pagenation;
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 20px;
+    @include media(0, $mediaMobile) {
+      max-width: 320px;
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.8;
+    color: $colorDark;
+    font-family: "Bold";
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+  &__options {
+    @extend %reset;
+    @extend %innerMedium;
+    @extend %row;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 0;
+      width: 100%;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+      width: 100%;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+    }
+  }
+  &__option {
+    @extend %reset;
+    @extend %col;
+    width: 32%;
+    position: relative;
+    margin-bottom: 116px;
+    z-index: 1;
+    @include mediaMin($mediaTabletEnd) {
+      &:not(:nth-child(3n)) {
+        margin-right: calc(4% / 2);
+      }
+    }
+    &:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.15s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.05s;
+    }
+    &:nth-child(5) {
+      transition-delay: 0.15s;
+    }
+    &:nth-child(6) {
+      transition-delay: 0.1s;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 50%;
+      margin-bottom: 90px;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      margin-bottom: 0;
+      & + & {
+        margin-top: 74px;
+      }
+      &:nth-child(2n + 1) {
+        transform: translate(64px, 0);
+        width: calc(100% - 32px);
+      }
+    }
+    @include mediaMin($mediaTabletEnd) {
+      &:nth-child(3n + 2) {
+        transform: translate(0, 48px);
+      }
+      &:nth-child(3n + 3) {
+        transform: translate(0, 24px);
+      }
+      &._publication {
+        transform: translate(-30px, 50px);
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          transform: translate(-20px, 50px);
+        }
+      }
+      &._support {
+        transform: translate(-22px, 24px);
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          transform: translate(-12px, 24px);
+        }
+      }
+    }
+    &Inner {
+      @extend %reset;
+      @extend %col;
+      width: 100%;
+      transform: scale(0);
+      transition: 0.7s cubic-bezier(0.42, 0, 0.58, 1.42);
+      padding-left: 40px;
+      &._show {
+        transform: scale(1);
+      }
+    }
+    &Back {
+      position: absolute;
+      top: -22px;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 0;
+      width: 100px;
+      height: 120px;
+      border-radius: 40px;
+      z-index: -1;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 90px;
+        border-radius: 40px;
+      }
+      @include media(0, $mediaMobile) {
+        // top: -26px;
+      }
+    }
+    &Title {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 22px;
+      line-height: 1.2;
+      font-family: "Bold";
+      color: #9a52fd;
+      margin-bottom: 7px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 18px;
+      }
+    }
+    &Description {
+      @extend %reset;
+      max-width: 90%;
+      font-size: 18px;
+      line-height: 1.2;
+      font-family: "Medium";
+      color: $colorDark;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 16px;
+      }
+    }
+  }
+}

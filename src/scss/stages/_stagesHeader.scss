@@ -1,0 +1,334 @@
+.stagesHeader {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  position: relative;
+  padding: $paddingHead 0 216px 0;
+  z-index: 1;
+  overflow: hidden;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 240px 0 150px 0;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding: 200px 0 60px 0;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 340px 0 36px 0;
+  }
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-left: 540px;
+    @extend %reset;
+    z-index: -1;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-left: 400px;
+      top: -60px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      transform: translate(-50%, 0) scale(0.4);
+      margin: -96px 0 0 220px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-left: 0;
+      right: 0;
+      left: auto;
+      transform-origin: top right;
+      transform: translate(0, 0) scale(0.5);
+      top: 40px;
+    }
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 20px;
+      right: -120px;
+      width: 830px;
+      height: 410px;
+      background: rgba(#e7e7ed, 0.5);
+      border-radius: 220px;
+      transform: rotate(-40deg);
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 700px;
+        height: 350px;
+        right: -130px;
+        top: 100px;
+        background: rgba(#f1f1f5, 0.5);
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        background: rgba(#f1f1f5, 0.5);
+        width: 1500px;
+        height: 580px;
+        top: -162px;
+        right: -580px;
+        border-radius: 320px;
+      }
+      @include media(0, $mediaMobile) {
+        height: 500px;
+        width: 800px;
+        transform: rotate(-45deg);
+        border-radius: 360px;
+        top: -60px;
+        right: -200px;
+      }
+    }
+    &Content {
+      @extend %reset;
+      @extend %row;
+      margin: 140px 198px 0 0;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        margin: 210px 130px 0 0;
+      }
+      @include media(0, $mediaMobile) {
+        margin: 110px 40px 0 0;
+      }
+    }
+    &Items {
+      @extend %reset;
+      @extend %col;
+      &:nth-child(1) {
+        padding-top: 24px;
+      }
+      &:nth-child(3) {
+        padding-top: 24px;
+      }
+      &:nth-child(4) {
+        padding-top: 58px;
+      }
+      will-change: transform;
+      @keyframes icons {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -8px, 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      animation: icons 2.4s infinite ease-in-out;
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+      & + & {
+        margin-left: 50px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin-left: 32px;
+        }
+        @include media(0, $mediaMobile) {
+          margin-left: 40px;
+        }
+      }
+    }
+    &Item {
+      @extend %reset;
+      @extend %col;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      border-radius: 20px;
+      box-shadow: 20px 15px 40px rgba(0, 0, 0, 0.12);
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        height: 68px;
+        border-radius: 14px;
+      }
+      &._text {
+        width: 120px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          width: 82px;
+        }
+      }
+      &._icon {
+        width: 100px;
+        background: #f4f4f7;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          width: 68px;
+        }
+      }
+      &._ui-ux {
+        background: #fbf6e3;
+        transform: translate(10px, 0);
+      }
+      &._ios {
+        background: #d7effe;
+        width: 100px;
+        transform: translate(44px, 0);
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          width: 68px;
+        }
+      }
+      &._android {
+        background: #eef7d1;
+        transform: translate(-12px, 0);
+      }
+      &._back-end {
+        background: #bfdfe6;
+        transform: translate(-20px, 0);
+      }
+      &._ii {
+        background: #d2f4e4;
+        transform: translate(-6px, 0);
+      }
+      &._qa-qc {
+        background: #faecfc;
+        transform: translate(-18px, 0);
+      }
+      &._api {
+        background: #f5eeee;
+      }
+      &._swift {
+        margin: 48px 0;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin: 26px 0;
+        }
+      }
+      &._kotlin {
+        transform: translate(24px, 0);
+      }
+      &._android {
+        margin: 40px 0 42px 0;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin: 24px 0;
+        }
+      }
+      &._postgresql {
+        margin: 51px 0;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin: 30px 0;
+        }
+      }
+      &._python {
+        transform: translate(-20px, 0);
+      }
+      &._api {
+        margin: 42px 0 37px 0;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin: 24px 0;
+        }
+      }
+      &Icon {
+        @extend %reset;
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &._swift &Icon {
+        width: 60px;
+        height: 60px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      &._figma &Icon {
+        width: 38px;
+        height: 54px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          height: 40px;
+          width: 30px;
+        }
+      }
+      &Content {
+        @extend %reset;
+        font-size: 22px;
+        line-height: 1.1;
+        font-family: "Bold";
+        color: $colorDark;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__pagenation {
+    @extend %pagenation;
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+  }
+  &__content {
+    @extend %reset;
+    width: 100%;
+    max-width: 806px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      max-width: 700px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 20px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 340px;
+    }
+    @include media(0, $mediaMobile) {
+      max-width: 320px;
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 90%;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Regular";
+    color: $colorDark;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 20px;
+      max-width: 580px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 16px;
+      max-width: 100%;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 14px;
+      max-width: 100%;
+    }
+    &._hard {
+      font-family: "Bold";
+      color: #9a52fd;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        max-width: 400px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 18px;
+        max-width: 360px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 16px;
+      }
+    }
+    & + & {
+      margin-top: 10px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        margin-top: 20px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-top: 20px;
+      }
+    }
+  }
+}

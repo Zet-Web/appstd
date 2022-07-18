@@ -1,0 +1,135 @@
+.caseProjects {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 64px 0;
+  overflow: hidden;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 54px 0 100px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__content {
+    width: 100%;
+    @extend %reset;
+    @extend %innerMedium;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 96px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 70px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 70px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 40px;
+    }
+  }
+  &__box {
+    @extend %reset;
+    width: 100%;
+    padding-left: 110px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding-left: 0;
+    }
+    @include media(0, $mediaMobile) {
+      padding-left: 0;
+    }
+  }
+  &__slider {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+    &Arrows {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 654px;
+      z-index: 2;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        display: none;
+      }
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+    &Arrow {
+      width: 60px;
+      height: 60px;
+      & + & {
+        margin-top: 22px;
+        @include media(0, $mediaMobile) {
+          margin: 0 20px 0 0;
+        }
+      }
+    }
+    &Pagenation {
+      position: absolute;
+      top: 100%;
+      margin-top: 54px;
+      left: 0;
+      z-index: 2;
+      @include media(0, $mediaMobile) {
+        margin-top: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+  &__items {
+    @extend %reset;
+    display: inline-flex;
+    will-change: transform;
+    transition: $trans;
+    align-items: stretch;
+  }
+  &__item {
+    @extend %reset;
+    width: 506px;
+    margin-right: 146px;
+    transition: $trans;
+    will-change: transform;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-right: 110px;
+    }
+    @include media(0, $mediaMobile) {
+      width: calc(100vw - 50px);
+      margin-right: 10px;
+    }
+    &[data-prev] {
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-110px, 0);
+      @include media($mediaMobileEnd, $mediaTablet) {
+        transform: translate(0, 0);
+        opacity: 1;
+        visibility: visible;
+      }
+      @include media(0, $mediaMobile) {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+      }
+    }
+    &[data-current] {
+      transform: translate(-110px, 0);
+      @include media($mediaMobileEnd, $mediaTablet) {
+        transform: translate(0, 0);
+      }
+      @include media(0, $mediaMobile) {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}

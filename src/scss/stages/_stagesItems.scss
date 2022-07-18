@@ -1,0 +1,391 @@
+.stagesItems {
+  width: 100%;
+  @extend %reset;
+  @extend %section;
+  padding: 12px 0 100px 0;
+  $paddingItems: calc(calc(100vw - #{$widthContent}) / 2);
+  $paddingItemsMedium: calc(calc(100vw - #{$widthContentMedium}) / 2);
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+    @include media(0, $mediaMobile) {
+      padding: 0;
+    }
+  }
+  &__items {
+    @extend %reset;
+    @extend %row;
+    width: calc(100% + #{$paddingItems});
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: calc(100% + #{$paddingItemsMedium});
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 100%;
+      flex-direction: column;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+  &__item {
+    @extend %reset;
+    &._nav {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      width: 200px;
+      padding-top: 14px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding: 0 60px;
+        margin-bottom: 42px;
+      }
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+    &._content {
+      width: calc(100% - 200px);
+      padding-left: 186px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding-left: 60px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 100%;
+        padding: 0 20px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        padding-left: 0;
+      }
+    }
+  }
+  &__list {
+    @extend %reset;
+    @extend %col;
+    width: 100%;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &Item {
+      @extend %reset;
+      @extend %click;
+      max-width: 100%;
+      font-size: 18px;
+      line-height: 1.2;
+      font-family: "Medium";
+      color: $colorGrey;
+      position: relative;
+      transition: $trans;
+      @include mediaMin($mediaMobileEnd) {
+        &:hover {
+          color: $colorMain;
+        }
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -22px;
+        transform: translate(0, -50%);
+        width: 10px;
+        height: 10px;
+        @include bg("list-current-icon.svg", contain, center);
+        margin-top: -1px;
+        opacity: 0;
+        transition: $trans;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          left: -14px;
+        }
+      }
+      &._current {
+        color: $colorMain;
+        &::before {
+          opacity: 1;
+        }
+      }
+      & + & {
+        margin-top: 15px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  &__block {
+    @extend %reset;
+    width: 100%;
+    border-radius: 60px 0 0 60px;
+    padding: 106px 0 76px 252px;
+    position: relative;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 90px 0 70px 190px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 68px 50px 60px 50px;
+      border-radius: 60px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 24px 20px 44px 20px;
+      border-radius: 40px 0 0 40px;
+    }
+    &:nth-child(5n + 1) {
+      background: #d2f4e4;
+    }
+    &:nth-child(5n + 2) {
+      background: #f5eeee;
+    }
+    &:nth-child(5n + 3) {
+      background: #eef7d1;
+    }
+    &:nth-child(5n + 4) {
+      background: #eaeaf6;
+    }
+    &:nth-child(5n) {
+      background: #faecfc;
+    }
+    & + & {
+      margin-top: 100px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-top: 50px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-top: 60px;
+      }
+    }
+    &Number {
+      @extend %reset;
+      @extend %col;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 75px;
+      left: 68px;
+      width: 100px;
+      height: 120px;
+      background: #fff;
+      border-radius: 40px;
+      font-size: 82px;
+      color: $colorDark;
+      font-family: "Bold";
+      z-index: 1;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        top: 64px;
+        left: 50px;
+        font-size: 72px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        top: 50px;
+        left: 50px;
+        width: 66px;
+        height: 80px;
+        font-size: 42px;
+        border-radius: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 80px;
+        height: 100px;
+        font-size: 62px;
+        top: 24px;
+        left: 20px;
+        border-radius: 30px;
+      }
+    }
+    &Content {
+      @extend %reset;
+      @extend %col;
+      width: 100%;
+    }
+    &Title {
+      @extend %reset;
+      max-width: 680px;
+      font-size: 52px;
+      line-height: 1.2;
+      color: $colorDark;
+      font-family: "Medium";
+      margin-bottom: 54px;
+      @extend %col;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 42px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 38px;
+        padding-left: 100px;
+        margin-bottom: 68px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 32px;
+        line-height: 1.1;
+        max-width: 100%;
+        min-height: 100px;
+        justify-content: center;
+        padding-left: 110px;
+        margin-bottom: 32px;
+      }
+      perspective: 400px;
+      &Elem {
+        will-change: transform;
+        transform: rotateX(-60deg);
+        transform-origin: 50% 50%;
+        display: inline-block;
+        transition: $transLong;
+        opacity: 0;
+        &._show {
+          transform: rotateX(0deg);
+          opacity: 1;
+        }
+      }
+    }
+    &Texts {
+      @extend %reset;
+      max-width: 680px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        max-width: 600px;
+      }
+    }
+    &Text {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 18px;
+      line-height: 1.7;
+      color: $colorDark;
+      font-family: "Regular";
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      & + & {
+        margin-top: 28px;
+      }
+    }
+    &Support {
+      @extend %reset;
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.4;
+      color: rgba($colorDark, 0.4);
+      font-family: "Regular";
+      margin-top: 25px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 16px;
+        max-width: 600px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 14px;
+        max-width: 100%;
+        margin-top: 20px;
+      }
+    }
+    &._design &Foot {
+      &List {
+        @include mediaMin($mediaMobileEnd) {
+          display: block;
+          columns: 2 auto;
+          column-gap: 50px;
+        }
+      }
+    }
+    &Foot {
+      @extend %reset;
+      @extend %col;
+      width: 100%;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #d3d5dc;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding-top: 22px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+      &Title {
+        @extend %reset;
+        max-width: 680px;
+        font-size: 26px;
+        line-height: 1.4;
+        font-family: "Bold";
+        color: $colorDark;
+        margin-bottom: 36px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          margin-bottom: 26px;
+        }
+        @include media(0, $mediaMobile) {
+          font-size: 18px;
+          margin-bottom: 20px;
+          line-height: 1.3;
+        }
+      }
+      &List {
+        @extend %reset;
+        @extend %col;
+        max-width: 680px;
+        @include media(0, $mediaMobile) {
+          max-width: 100%;
+        }
+        &Item {
+          @extend %reset;
+          @extend %click;
+          max-width: 100%;
+          font-size: 18px;
+          line-height: 1.2;
+          color: $colorMain;
+          font-family: "Regular";
+          position: relative;
+          padding-left: 40px;
+          transition: $trans;
+          @include mediaMin($mediaMobileEnd) {
+            &:hover {
+              color: $colorMainActive;
+            }
+            &:hover span {
+              border-bottom-color: $colorMain;
+            }
+          }
+          & span {
+            border-bottom: 1px solid transparent;
+            transition: $trans;
+          }
+          @include media(0, $mediaMobile) {
+            font-size: 18px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            @include bg("list-icon.svg", contain, center);
+            margin-top: -2px;
+            @include media(0, $mediaMobile) {
+              margin-top: 0;
+            }
+          }
+          & + & {
+            margin-top: 14px;
+          }
+        }
+      }
+    }
+  }
+}

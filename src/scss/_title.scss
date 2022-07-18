@@ -1,0 +1,666 @@
+.title {
+  @extend %reset;
+  width: 100%;
+  font-size: 82px;
+  color: $colorDark;
+  font-family: "Bold";
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    font-size: 62px;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    font-size: 50px;
+    line-height: 1.1;
+  }
+  @include media(0, $mediaMobile) {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+  &._largeSizeTablet {
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 82px;
+    }
+  }
+  &._mediumSizeTablet {
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 42px;
+    }
+  }
+  &._tall {
+    line-height: 1.2;
+    &._large {
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        line-height: 1.5;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        line-height: 1.5;
+      }
+    }
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      line-height: 1.2;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      line-height: 1.2;
+    }
+    @include media(0, $mediaMobile) {
+      line-height: 1.2;
+    }
+  }
+  & b {
+    @extend %reset;
+    background: linear-gradient(155deg, #7ecaa6, #61bdd1, #cf6ddd, #4061f8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &._mediumSize {
+    font-size: 52px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 42px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 39px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 38px;
+    }
+  }
+  &__icon {
+    @extend %reset;
+    width: 100px;
+    height: 70px;
+    display: inline-block;
+    position: relative;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      height: 50px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 36px;
+    }
+    @include media(0, $mediaMobile) {
+      width: 50px;
+      height: 32px;
+    }
+    &._icon1 {
+      width: 82px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 78px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 40px;
+        margin-right: 32px;
+      }
+    }
+    &._icon2 {
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+      }
+    }
+    &._icon4 {
+      width: 108px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 88px;
+      }
+      @include inParent(".title._mediumSizeTablet") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 80px;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 58px;
+      }
+    }
+    &._icon5 {
+      @include inParent(".title._mediumSizeTablet") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 80px;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 70px;
+      }
+    }
+    &._icon6 {
+      width: 110px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 90px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 90px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 70px;
+      }
+    }
+    &._icon7 {
+      width: 120px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 106px;
+      }
+      @include inParent(".title._mediumSizeTablet") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 100px;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 68px;
+      }
+    }
+    &._icon7-2 {
+      width: 128px;
+      @include media(0, $mediaMobile) {
+        width: 68px;
+      }
+    }
+    &._icon8 {
+      width: 80px;
+      @include media(0, $mediaMobile) {
+        width: 80px;
+      }
+    }
+    &._icon9 {
+      // width: 80px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 80px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 60px;
+      }
+    }
+    &._icon10 {
+      @include media(0, $mediaMobile) {
+        width: 70px;
+      }
+    }
+    &._icon12 {
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+      }
+    }
+    &._icon16 {
+      width: 80px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 50px;
+      }
+    }
+    &._icon18 {
+      width: 126px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 80px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 60px;
+      }
+    }
+    &Item {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &._icon1 &Item {
+      width: 78px;
+      height: 78px;
+      margin: 6px 0 0 12px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+        margin-left: 8px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 74px;
+        height: 70px;
+        margin-left: 6px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 40px;
+        height: 48px;
+        margin-top: 4px;
+      }
+    }
+    &._icon2 &Item {
+      width: 78px;
+      height: 78px;
+      margin: 10px 0 0 -18px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 86px;
+        height: 86px;
+        margin: 2px 0 0 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 74px;
+        height: 74px;
+        margin: 2px 0 0 -14px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 50px;
+        height: 50px;
+        margin-left: -4px;
+        margin-top: 2px;
+      }
+    }
+    &._icon3 &Item {
+      width: 66px;
+      height: 66px;
+      margin: 6px 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 60px;
+        height: 60px;
+        margin: 4px 0 0 -6px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 56px;
+        height: 56px;
+        margin: 2px 0 0 -6px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin-left: 10px;
+        margin-top: 4px;
+      }
+    }
+    &._icon4 &Item {
+      width: 76px;
+      height: 76px;
+      margin: 6px 0 0 0;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 58px;
+        height: 80px;
+        margin-top: 8px;
+      }
+      @include inParent(".indexAbout") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 50px;
+          height: 70px;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    &._icon5 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 10px 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+        margin-top: 12px;
+      }
+      @include inParent(".indexAbout") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 56px;
+          height: 56px;
+          margin-top: 4px;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 44px;
+        height: 44px;
+        margin: 4px 0 0 2px;
+      }
+    }
+    &._icon6 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 6px 0 0 2px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 60px;
+        height: 60px;
+        margin-top: 10px;
+        margin-left: 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 60px;
+        height: 60px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin-left: 2px;
+      }
+    }
+    &._icon7 &Item {
+      width: 80px;
+      height: 80px;
+      margin: -4px 0 0 0px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 80px;
+        height: 80px;
+        margin: -6px 0 0 0px;
+      }
+      @include inParent(".indexClients") {
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 66px;
+          height: 66px;
+          margin: -8px 0 0 0;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 50px;
+        height: 50px;
+        margin: -4px 0 0 -2px;
+      }
+    }
+    &._icon7-2 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 4px 0 0 0;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 56px;
+        height: 56px;
+        margin-top: 4px;
+        margin-left: -2px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 40px;
+        height: 40px;
+        margin: 2px 0 0 0;
+      }
+    }
+    &._icon8 &Item {
+      width: 68px;
+      height: 68px;
+      margin: 2px 0 0 8px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+        margin-top: -2px;
+        margin-left: 4px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 0 0 0 2px;
+        width: 48px;
+        height: 48px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 50px;
+        height: 50px;
+        margin: -4px 0 0 0px;
+      }
+    }
+    &._icon9 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 4px 0 0 2px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 50px;
+        height: 50px;
+        margin: -2px 0 0 4px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 0px 0 0 0px;
+      }
+    }
+    &._icon10 &Item {
+      width: 104px;
+      height: 104px;
+      margin: 12px 0 0 8px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 100px;
+        height: 100px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 80px;
+        height: 80px;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 70px;
+        height: 70px;
+        margin: 0px 0 0 0px;
+      }
+    }
+    &._icon11 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 8px 0 0 14px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 52px;
+        height: 52px;
+        margin-left: 0;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 6px 0 0 8px;
+      }
+    }
+    &._icon12 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 12px 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 52px;
+        height: 52px;
+        margin: 10px 0 0 2px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 44px;
+        height: 44px;
+        margin: 6px 0 0 -10px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 38px;
+        height: 38px;
+        margin: 6px 0 0 4px;
+      }
+    }
+    &._icon13 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 12px 0 0 14px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 50px;
+        height: 50px;
+        margin-top: 6px;
+        margin-left: -6px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 46px;
+        height: 46px;
+        margin: 4px 0 0 -8px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 4px 0 0 8px;
+      }
+    }
+    &._icon14 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 4px 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+        margin-top: 8px;
+        margin-left: -4px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 4px 0 0 8px;
+      }
+    }
+    &._icon15 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 4px 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+        margin-top: 8px;
+        margin-left: -6px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 4px 0 0 4px;
+      }
+    }
+    &._icon16 &Item {
+      width: 90px;
+      height: 90px;
+      margin: 12px 0 0 0px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 84px;
+        height: 84px;
+        margin-top: 8px;
+        margin-left: -2px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 64px;
+        height: 64px;
+        margin: 8px 0 0 -10px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 10px 0 0 -2px;
+      }
+    }
+    &._icon3-1 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 4px 0 0 8px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 60px;
+        height: 60px;
+        margin: 6px 0 0 -6px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 50px;
+        height: 50px;
+        margin-left: -8px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin-left: 10px;
+        margin-top: 4px;
+      }
+    }
+    &._icon17 &Item {
+      width: 78px;
+      height: 78px;
+      margin: -2px 0 0 12px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 76px;
+        height: 76px;
+        margin: -10px 0 0 4px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 52px;
+        height: 52px;
+        margin: -6px 0 0 2px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin-left: 10px;
+        margin-top: 4px;
+      }
+    }
+    &._icon18 &Item {
+      width: 106px;
+      height: 106px;
+      margin: 8px 0 0 2px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 108px;
+        height: 108px;
+        margin: 8px 0 0 -2px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 80px;
+        height: 80px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 66px;
+        height: 66px;
+        margin-left: 10px;
+        margin-top: 4px;
+      }
+    }
+    &._icon19 &Item {
+      width: 86px;
+      height: 86px;
+      margin: 6px 0 0 8px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 78px;
+        height: 78px;
+        margin: 8px 0 0 -2px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-top: -4px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 58px;
+        height: 58px;
+        margin-left: 14px;
+        margin-top: 4px;
+      }
+    }
+    &._icon20 &Item {
+      width: 72px;
+      height: 72px;
+      margin: 0 0 0 6px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 64px;
+        height: 64px;
+        margin-top: 8px;
+        margin-left: -4px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 42px;
+        height: 42px;
+        margin: 4px 0 0 8px;
+      }
+    }
+  }
+  perspective: 400px;
+  &__elem {
+    will-change: transform;
+    &._icon {
+      transform: scale(0.5);
+      opacity: 0;
+      transition: 0.5s cubic-bezier(0.42, 0, 0, 1.42);
+      transform-origin: 50% 50%;
+      &._show {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    &:not(._icon) {
+      transform: rotateX(-60deg);
+      transform-origin: 50% 50%;
+      display: inline-block;
+      transition: $transLong;
+      opacity: 0;
+      &._show {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
+    }
+  }
+}

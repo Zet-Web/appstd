@@ -1,0 +1,288 @@
+.caseStages {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 150px 0 120px 0;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 100px 0;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding: 100px 0;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 64px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__content {
+    width: 100%;
+    @extend %reset;
+    @extend %innerMedium;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 100px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 82px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 44px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 64px;
+    }
+  }
+  &__items {
+    @extend %reset;
+    @extend %row;
+    width: 100%;
+    @include media(0, $mediaMobile) {
+      width: 100vw;
+      margin-left: -20px;
+    }
+  }
+  &__item {
+    @extend %reset;
+    &._info {
+      width: 328px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 360px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 260px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 204px;
+      }
+    }
+    &._graphic {
+      width: 886px;
+      margin-left: auto;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 730px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 350px;
+      }
+      @include media(0, $mediaMobile) {
+        width: calc(100% - 224px);
+        overflow: hidden;
+        overflow-x: auto;
+      }
+    }
+  }
+  &__list {
+    @extend %reset;
+    width: 100%;
+    margin-bottom: 60px;
+    &Item {
+      @extend %reset;
+      @extend %row;
+      align-items: center;
+      height: 46px;
+      font-size: 18px;
+      font-family: "Medium";
+      color: $colorDark;
+      padding-left: 60px;
+      position: relative;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 16px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+        line-height: 1.25;
+        height: 42px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 14px;
+        line-height: 1.2;
+      }
+      & + & {
+        margin-top: 20px;
+      }
+      &::before {
+        @extend %reset;
+        @extend %col;
+        content: "0" attr(data-key) ".";
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 0;
+        width: 40px;
+        height: 46px;
+        border-radius: 15px;
+        background: #eaf0f6;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: "Bold";
+        color: #9a52fd;
+        @include media(0, $mediaMobile) {
+          border-radius: 0 15px 15px 0;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__more {
+    @extend %reset;
+    width: 240px;
+    height: 60px;
+    display: block;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 200px;
+      height: 50px;
+    }
+  }
+  &__graphic {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @include media(0, $mediaMobile) {
+      width: 920px;
+      padding-bottom: 80px;
+    }
+    &Content {
+      width: 100%;
+      position: relative;
+    }
+    &Item {
+      @extend %reset;
+      @extend %col;
+      justify-content: center;
+      width: 100%;
+      height: 46px;
+      & + & {
+        margin-top: 20px;
+      }
+      &Inner {
+        @extend %reset;
+        height: 38px;
+        background: linear-gradient(-90deg, #bfdfe6 0%, #eaeaf6 100%);
+        border-radius: 20px;
+        position: relative;
+        transition: 1s cubic-bezier(0.42, 0, 0, 1.42);
+        will-change: transform;
+        &._hide {
+          width: 0 !important;
+        }
+      }
+    }
+    &Back {
+      @extend %reset;
+      @extend %row;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 84px);
+      z-index: -1;
+      padding-right: 20px;
+      @include media(0, $mediaMobile) {
+        height: calc(100% + 64px);
+        justify-content: flex-start;
+        padding-right: 0;
+      }
+      &Item {
+        @extend %reset;
+        @extend %col;
+        justify-content: flex-end;
+        align-items: flex-start;
+        height: 100%;
+        // width: 5%;
+        font-size: 14px;
+        line-height: 1.4;
+        color: $colorDark;
+        position: relative;
+        z-index: 1;
+        font-family: "Medium";
+        @include media(0, $mediaMobile) {
+          width: 5%;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: calc(100% - 24px);
+          background: #dde1e7;
+          z-index: -1;
+        }
+      }
+    }
+    &Dir {
+      @extend %reset;
+      position: absolute;
+      bottom: -56px;
+      z-index: 2;
+      width: 100%;
+      height: 2px;
+      background: $colorDark;
+      @include media(0, $mediaMobile) {
+        bottom: -34px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: -4px;
+        width: 12px;
+        height: 8px;
+        @include bg("stage-arrow.svg", contain, center);
+      }
+      &Support {
+        @extend %reset;
+        position: absolute;
+        left: 100%;
+        margin-left: 8px;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-size: 14px;
+        font-family: "Regular";
+        color: $colorGrey;
+        @include media(0, $mediaMobile) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 634px;
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: "Regular";
+    color: $colorDark;
+    margin-top: 120px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 11px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+  &__info {
+    @extend %reset;
+    @extend %col;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  &__info &__description {
+    margin: 0 0 30px 0;
+  }
+}

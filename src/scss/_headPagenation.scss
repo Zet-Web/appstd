@@ -1,0 +1,73 @@
+.headPagenation {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  &__inner {
+    @extend %reset;
+    @extend %section;
+    width: 100%;
+    max-width: 1738px;
+    padding: 0 110px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      max-width: 1556px;
+      padding: 0 130px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 1220px;
+      padding: 0 82px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 0 68px;
+    }
+  }
+  &__content {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  &__back {
+    @extend %reset;
+    @extend %click;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 100%;
+    margin-right: 56px;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-right: 28px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-right: 28px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__link {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    @extend %click;
+    font-size: 16px;
+    font-family: "Medium";
+    color: $colorDark;
+    position: relative;
+    &._current {
+      color: $colorGrey;
+      pointer-events: none;
+    }
+    & + & {
+      margin-left: 3px;
+    }
+    &Icon {
+      @extend %reset;
+      width: 14px;
+      height: 14px;
+      margin-left: 5px;
+    }
+  }
+}

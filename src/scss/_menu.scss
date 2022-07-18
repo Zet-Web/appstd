@@ -1,0 +1,437 @@
+.menu {
+  @extend %reset;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: #fff;
+  // will-change: transform;
+  &__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200vw;
+    height: 200vh;
+    z-index: 1;
+    background: linear-gradient(
+      100deg,
+      #eaf0f6,
+      #eef7d1,
+      #dae9f3,
+      #faecfc,
+      #eaf0f6,
+      #eef7d1,
+      #dae9f3,
+      #faecfc,
+      #eaf0f6
+    );
+    @include media(0, $mediaMobile) {
+      will-change: background-position;
+    }
+    transition: $transLong;
+    @keyframes gradient {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: -100vw -100vh;
+      }
+    }
+    animation: gradient 3s infinite linear;
+    @include media(0, $mediaMobile) {
+      background: linear-gradient(
+        -45deg,
+        #eaf0f6,
+        #eef7d1,
+        #dae9f3,
+        #faecfc,
+        #eaf0f6,
+        #eef7d1,
+        #dae9f3,
+        #faecfc,
+        #eaf0f6
+      );
+    }
+  }
+  &._active &__gradient {
+    opacity: 0;
+  }
+  @include media(0, $mediaMobile) {
+    padding-top: 80px;
+  }
+  &__back {
+    @extend %reset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    transition: $transLong;
+    // will-change: opacity;
+    &._show {
+      opacity: 1;
+    }
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+  }
+  &__content {
+    @extend %reset;
+    @extend %col;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+    padding: 50px 0 100px 0;
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 3;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding-top: 0px;
+      margin-top: 80px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 0;
+      margin-top: 0;
+    }
+  }
+  &._active &__item:not(._current) {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  &__items {
+    @extend %reset;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    position: relative;
+    z-index: 1;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      min-height: 800px;
+    }
+    @include media(0, $mediaMobile) {
+      min-height: 600px;
+    }
+  }
+  &__item {
+    @extend %reset;
+    @extend %col;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 80px;
+    padding: 56px 48px;
+    background: #fff;
+    transition: $transLong;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    @include inParent(".menu._hide") {
+      width: 0 !important;
+      opacity: 0 !important;
+      will-change: width, opacity;
+    }
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      border-radius: 50px;
+      padding: 38px 32px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 24px 36px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 15px 24px;
+      top: 0;
+      transform: translate(-50%, 0);
+      border-radius: 30px;
+    }
+    &._index {
+      margin: -242px 0 0 -584px;
+      width: 226px;
+      height: 154px;
+      padding: 0;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 154px;
+        height: 104px;
+        margin: -260px 0 0 -400px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 140px;
+        height: 70px;
+        margin: -290px 0 0 -210px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 102px;
+        height: 50px;
+        margin: 18px 0 0 -88px;
+        border-radius: 20px;
+      }
+    }
+    &._onlineshop {
+      width: 378px;
+      height: 222px;
+      padding: 0;
+      margin: -292px 0 0 102px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.2s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 258px;
+        height: 152px;
+        margin: -290px 0 0 72px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 230px;
+        height: 90px;
+        margin: -340px 0 0 80px;
+        border-radius: 40px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 168px;
+        height: 64px;
+        margin: 34px 0 0 62px;
+        white-space: nowrap;
+      }
+    }
+    &._marketplace {
+      width: 298px;
+      height: 222px;
+      padding: 0;
+      margin: -112px 0 0 -284px;
+      border-radius: 60px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.1s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 204px;
+        height: 152px;
+        border-radius: 50px;
+        margin: -110px 0 0 -200px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 200px;
+        height: 90px;
+        margin: -140px 0 0 -120px;
+        border-radius: 40px;
+      }
+      @include media(0, $mediaMobile) {
+        border-radius: 30px;
+        width: 162px;
+        height: 64px;
+        margin: 118px 0 0 10px;
+      }
+    }
+    &._intelligence {
+      width: 380px;
+      height: 222px;
+      padding: 0;
+      margin: -156px 0 0 560px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.3s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 258px;
+        height: 152px;
+        border-radius: 60px;
+        margin: -134px 0 0 378px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 200px;
+        height: 100px;
+        border-radius: 40px;
+        margin: -180px 0 0 210px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 182px;
+        height: 84px;
+        margin: 206px 0 0 -50px;
+      }
+    }
+    &._portfolio {
+      width: 300px;
+      height: 120px;
+      padding: 0;
+      margin: 6px 0 0 150px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.25s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 204px;
+        height: 82px;
+        margin: 14px 0 0 100px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 170px;
+        height: 70px;
+        margin: -16px 0 0 80px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 162px;
+        height: 56px;
+        margin: 310px 0 0 70px;
+      }
+    }
+    &._stages {
+      width: 430px;
+      height: 120px;
+      padding: 0;
+      margin: 106px 0 0 -530px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.05s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 294px;
+        height: 82px;
+        margin: 70px 0 0 -360px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 250px;
+        height: 80px;
+        margin: 90px 0 0 -170px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 184px;
+        height: 65px;
+        margin: 382px 0 0 -30px;
+        text-align: center;
+      }
+    }
+    &._about {
+      width: 300px;
+      height: 110px;
+      padding: 0;
+      margin: 226px 0 0 -100px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.15s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 204px;
+        height: 76px;
+        margin: 256px 0 0 -68px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 170px;
+        height: 70px;
+        margin: 270px 0 0 -12px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 142px;
+        height: 60px;
+        margin: 468px 0 0 -74px;
+      }
+    }
+    &._contacts {
+      width: 300px;
+      height: 160px;
+      padding: 0;
+      border-radius: 140px;
+      margin: 180px 0 0 454px;
+      @include inParent(".menu._notLoad") {
+        transition-delay: 0.17s;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 204px;
+        height: 110px;
+        margin: 210px 0 0 306px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 170px;
+        height: 80px;
+        margin: 170px 0 0 180px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 142px;
+        height: 72px;
+        margin: 500px 0 0 80px;
+        border-radius: 30px;
+        margin-bottom: 32px;
+      }
+    }
+    &Content {
+      @extend %reset;
+      font-size: 36px;
+      font-family: "Bold";
+      color: $colorDark;
+      line-height: 1.2;
+      white-space: nowrap;
+      transition: $transLong;
+      will-change: transform;
+      @include inParent(".menu__item._index") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0s;
+        }
+      }
+      @include inParent(".menu__item._onlineshop") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.2s;
+        }
+      }
+      @include inParent(".menu__item._marketplace") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.1s;
+        }
+      }
+      @include inParent(".menu__item._intelligence") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.3s;
+        }
+      }
+      @include inParent(".menu__item._portfolio") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.25s;
+        }
+      }
+      @include inParent(".menu__item._stages") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.05s;
+        }
+      }
+      @include inParent(".menu__item._about") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.15s;
+        }
+      }
+      @include inParent(".menu__item._contacts") {
+        @include inParent(".menu._notLoad") {
+          transition-delay: 0.17s;
+        }
+      }
+      @include inParent(".menu._hide") {
+        opacity: 0;
+        transform: translate(0, 100%);
+        @include media(0, $mediaMobile) {
+          transform: translate(0, 40px);
+        }
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 24px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 17px;
+      }
+    }
+    &._intelligence &Content {
+      // margin-left: 56px;
+      // @include media($mediaTabletEnd, $mediaDesktop) {
+      //     margin-left: 42px;
+      // }
+      // @include media($mediaMobileEnd, $mediaTablet) {
+      //     margin-left: 30px;
+      // }
+      // @include media(0, $mediaMobile) {
+      //     margin-left: 26px;
+      // }
+    }
+  }
+}

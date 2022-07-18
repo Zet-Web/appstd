@@ -1,0 +1,222 @@
+.caseServicesCard {
+  @extend %reset;
+  width: 100%;
+  &__body {
+    @extend %reset;
+    width: 100%;
+  }
+  &__head {
+    @extend %reset;
+    width: 100%;
+    margin-bottom: 50px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 42px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 32px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 20px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 26px;
+  }
+  &__subTitle {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 26px;
+    line-height: 1.3;
+    color: $colorDark;
+    font-family: "Bold";
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 24px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 18px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 18px;
+    }
+  }
+  &__content {
+    @extend %reset;
+    @extend %col;
+    width: 100%;
+  }
+  &__text {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Regular";
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 14px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 14px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 14px;
+    }
+    & b {
+      @extend %reset;
+      font-family: "Bold";
+      color: #9a52fd;
+    }
+    & + & {
+      margin-top: 24px;
+    }
+  }
+  &__list + &__text,
+  &__text + &__list {
+    margin-top: 32px;
+    @include media(0, $mediaMobile) {
+      margin-top: 24px;
+    }
+  }
+  &__list {
+    @extend %reset;
+    width: 100%;
+    &Item {
+      @extend %reset;
+      width: 100%;
+      font-size: 18px;
+      font-family: "Medium";
+      color: $colorDark;
+      position: relative;
+      padding-left: 40px;
+      @include media(0, $mediaMobile) {
+        font-size: 16px;
+        padding-left: 34px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 0;
+        width: 24px;
+        height: 24px;
+        @include bg("list-icon-dark.svg", contain, center);
+      }
+      & + & {
+        margin-top: 16px;
+      }
+    }
+  }
+  &._show &__infoAction {
+    transform: rotate(45deg);
+  }
+  &__info {
+    @extend %reset;
+    width: 100%;
+    margin-top: 50px;
+    @include media(0, $mediaMobile) {
+      margin-top: 30px;
+    }
+    &Head {
+      @extend %reset;
+      @extend %row;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      font-size: 18px;
+      line-height: 1.3;
+      font-family: "Bold";
+      color: $colorDark;
+      border-top: 2px solid $colorDark;
+      border-bottom: 2px solid $colorDark;
+      @include media(0, $mediaMobile) {
+        font-size: 16px;
+        height: 60px;
+      }
+    }
+    &Action {
+      @extend %reset;
+      @extend %click;
+      @extend %col;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #d7effe;
+      transition: $trans;
+      will-change: transform;
+      @include mediaMin($mediaMobileEnd) {
+        &:hover {
+          background: $colorMain;
+        }
+        &:hover &Icon {
+          @include icon(#fff);
+        }
+      }
+      @include media(0, $mediaMobile) {
+        width: 40px;
+        height: 40px;
+      }
+      &Icon {
+        @extend %reset;
+        width: 24px;
+        height: 24px;
+        @include media(0, $mediaMobile) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    &Content {
+      @extend %reset;
+      width: 100%;
+      height: 0;
+      transition: $trans;
+      overflow: hidden;
+      will-change: height;
+      &Inner {
+        @extend %reset;
+        background: #eaf0f6;
+        width: 100%;
+        padding: 25px;
+        margin-top: 20px;
+        @include media(0, $mediaMobile) {
+          padding: 16px;
+          margin-top: 16px;
+        }
+      }
+    }
+    &Block {
+      @extend %reset;
+      width: 100%;
+      @extend %col;
+      & + & {
+        margin-top: 16px;
+      }
+      &Title {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: "Medium";
+        color: $colorDark;
+        @include media(0, $mediaMobile) {
+          font-size: 14px;
+        }
+      }
+      &Text {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: "Regular";
+        color: $colorDark;
+        @include media(0, $mediaMobile) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

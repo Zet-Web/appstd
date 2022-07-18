@@ -1,0 +1,91 @@
+.button {
+  @extend %reset;
+  @extend %row;
+  @extend %click;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 360px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: "Bold";
+  padding: 16px 24px;
+  transition: $trans;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding: 14px 24px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 12px 20px;
+    line-height: 1.2;
+    cursor: default;
+  }
+  &._main {
+    background: $colorMain;
+    color: #fff;
+    // @include mediaMin($mediaMobileEnd) {
+    //     &:hover {
+    //         background: $colorMainActive;
+    //     }
+    // }
+    // @include media(0, $mediaMobile) {
+    //     &:active {
+    //         background: $colorMainActive;
+    //     }
+    // }
+  }
+  &._mobileEmpty {
+    @include media(0, $mediaMobile) {
+      // padding: 0;
+      padding: 16.5px 46.5px;
+    }
+  }
+  &._mainLight {
+    background: #3f82eb;
+    color: #fff;
+  }
+  &._darkEmpty {
+    border: 2px solid #d3d5dc;
+    color: $colorDark;
+  }
+  &._mobileEmpty._main {
+    @include media(0, $mediaMobile) {
+      // background: none;
+      background: $colorMain;
+      color: $colorMain;
+      color: #fff;
+    }
+  }
+  &._back {
+    padding: 0;
+    color: $colorGrey;
+    background: none;
+    overflow: visible;
+  }
+  &__back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 320px;
+    height: 320px;
+    z-index: -1;
+    border-radius: 50%;
+    background: $colorMainActive;
+    &._hide {
+      transition: $transLong;
+      opacity: 0;
+    }
+  }
+  &._mainLight &__back {
+    background: rgb(53, 114, 212);
+  }
+  &._darkEmpty &__back {
+    background: #f2f2f2;
+  }
+}

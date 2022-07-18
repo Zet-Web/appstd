@@ -1,0 +1,351 @@
+.contactsHeader {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 226px 0 396px 0;
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding-bottom: 100px;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 130px 0 74px 0;
+  }
+  &__pagenation {
+    @extend %pagenation;
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+    @include media(0, $mediaMobile) {
+      padding: 0;
+    }
+  }
+  &__content {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+    @include media(0, $mediaMobile) {
+      border-radius: 40px 40px 0 0;
+      background: #eaf0f6;
+    }
+  }
+  &__items {
+    @extend %reset;
+    @extend %row;
+    width: 100%;
+    border-radius: 80px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: #eaf0f6;
+    padding: 50px 126px 60px 126px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 52px 84px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 558px;
+      flex-direction: column;
+      border-radius: 60px;
+      padding: 40px 52px 60px 52px;
+    }
+    @include media(0, $mediaMobile) {
+      border-radius: 0;
+      padding: 32px 20px;
+      flex-direction: column;
+      background: none;
+    }
+  }
+  &__item {
+    @extend %reset;
+    @extend %col;
+    &._content {
+      width: 460px;
+      padding-top: 10px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding-top: 20px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 100%;
+        margin-bottom: 70px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        padding-top: 0;
+        margin-bottom: 30px;
+      }
+    }
+    &._info {
+      width: 380px;
+      margin-left: auto;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 340px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 100%;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        background: rgba(#fbfbfd, 0.5);
+        bottom: -104px;
+        right: -204px;
+        width: 830px;
+        height: 410px;
+        border-radius: 360px;
+        z-index: -1;
+        transform: rotate(40deg);
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          right: -270px;
+          bottom: -110px;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          right: -240px;
+        }
+        @include media(0, $mediaMobile) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-left: -4px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 32px;
+      margin-left: -2px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-left: 0;
+    }
+    @include media(0, $mediaMobile) {
+      margin-left: 0;
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 90%;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Regular";
+    color: $colorDark;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 14px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 14px;
+      line-height: 1.4;
+      max-width: 100%;
+    }
+  }
+  &__links {
+    @extend %reset;
+    margin-bottom: 26px;
+  }
+  &__link {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 32px;
+    font-family: "Medium";
+    line-height: 1.3;
+    color: $colorDark;
+    transition: $trans;
+    display: block;
+    @include mediaMin($mediaMobileEnd) {
+      &:hover {
+        color: $colorMain;
+      }
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 22px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 28px;
+    }
+    & + & {
+      margin-top: 8px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-top: 6px;
+      }
+    }
+  }
+  &__socials {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 22px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+  }
+  &__social {
+    @extend %reset;
+    @extend %click;
+    @extend %row;
+    align-items: center;
+    & + & {
+      margin-left: 34px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 16px 0 0 0;
+      }
+      @include media(0, $mediaMobile) {
+        margin-left: 25px;
+      }
+    }
+    &Icon {
+      width: 32px;
+      height: 32px;
+      margin-right: 20px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 28px;
+        height: 28px;
+        margin-right: 16px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-right: 15px;
+      }
+    }
+    @include mediaMin($mediaMobileEnd) {
+      &:hover &Content {
+        color: $colorMain;
+      }
+    }
+    &Content {
+      @extend %reset;
+      max-width: calc(100% - 52px);
+      font-size: 24px;
+      font-family: "Regular";
+      transition: $trans;
+      color: $colorDark;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        max-width: calc(100% - 44px);
+        font-size: 18px;
+      }
+      @include media(0, $mediaMobile) {
+        max-width: calc(100% - 43px);
+      }
+    }
+  }
+  &__text {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Regular";
+    color: $colorDark;
+    margin-bottom: 34px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      order: 10;
+      margin: 20px 0 0 0;
+      font-size: 14px;
+    }
+  }
+  &__foot {
+    @extend %reset;
+    @extend %col;
+    width: 100%;
+    &Support {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 16px;
+      font-family: "Regular";
+      color: $colorDark;
+      margin-bottom: 20px;
+    }
+    &Links {
+      @extend %reset;
+      @extend %row;
+      width: 100%;
+      align-items: center;
+    }
+    &Link {
+      @extend %reset;
+      @extend %click;
+      @extend %col;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06),
+        0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: $trans;
+      position: relative;
+      will-change: transform;
+      @include mediaMin($mediaMobileEnd) {
+        &:hover {
+          background: $colorMain;
+        }
+        &:hover &Icon {
+          opacity: 0;
+          &._white {
+            opacity: 1;
+          }
+        }
+      }
+      & + & {
+        margin-left: 16px;
+      }
+      &Icon {
+        @extend %reset;
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        transition: $trans;
+        &._white {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &__form {
+    @extend %reset;
+    position: absolute;
+    top: 100%;
+    margin-top: -168px;
+    left: 126px;
+    width: 760px;
+    z-index: 2;
+    border-radius: 60px;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.25);
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 424px;
+      left: 86px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 304px;
+      top: auto;
+      margin-top: 0;
+      left: auto;
+      right: 60px;
+      bottom: -30px;
+    }
+    @include media(0, $mediaMobile) {
+      position: relative;
+      top: 0;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      left: 0;
+      box-shadow: none;
+      margin-bottom: -36px;
+    }
+  }
+}

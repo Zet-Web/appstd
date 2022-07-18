@@ -1,0 +1,431 @@
+.indexStats {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 40px 0 150px 0;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 26px 0 150px 0;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    padding-bottom: 140px;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 32px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__title {
+    @extend %reset;
+    @extend %innerMedium;
+    max-width: 100%;
+    margin-bottom: 64px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      margin-bottom: 74px;
+      padding: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 44px;
+    }
+  }
+  &__content {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+    height: 494px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      height: 410px;
+    }
+    @include media(0, $mediaMobile) {
+      height: 660px;
+      max-width: 375px;
+      margin: 0 auto;
+    }
+  }
+  &__item {
+    @extend %reset;
+    position: absolute;
+    padding: 15px 38px 14px 38px;
+    border-radius: 360px;
+    transform: scale(0);
+    transition: 0.7s cubic-bezier(0.42, 0, 0.58, 1.42);
+    &._show {
+      transform: scale(1);
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 13px 34px 12px 34px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 13px 34px 12px 34px;
+    }
+    &._projets {
+      background: #d2f4e4;
+      padding: 52px 42px 52px 54px;
+      height: 376px;
+      border-radius: 100px;
+      @extend %col;
+      justify-content: center;
+      bottom: 0;
+      left: 0;
+      transition-delay: 0.1s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding: 42px 40px 42px 44px;
+        height: 310px;
+        border-radius: 84px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        height: 260px;
+        bottom: auto;
+        top: 64px;
+        padding: 40px 22px;
+        border-radius: 70px;
+      }
+      @include media(0, $mediaMobile) {
+        max-width: 214px;
+        width: 60vw;
+        height: 140px;
+        border-radius: 50px;
+        bottom: auto;
+        top: 0;
+        padding: 32px;
+      }
+    }
+    &._ux-ui {
+      background: rgba(#2133ce, 0.1);
+      top: 58px;
+      left: 318px;
+      transition-delay: 0.05s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        left: 250px;
+        top: 42px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        left: 194px;
+        top: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        left: auto;
+        right: 170px;
+        top: 160px;
+        max-width: 130px;
+        width: 35vw;
+        text-align: center;
+      }
+    }
+    &._ios {
+      background: #f4e4d2;
+      top: 162px;
+      left: 402px;
+      transition-delay: 0.09s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        left: 334px;
+        top: 146px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        top: 120px;
+        left: 250px;
+      }
+      @include media(0, $mediaMobile) {
+        right: 0;
+        left: auto;
+        top: 102px;
+        max-width: 90px;
+        padding-right: 16px;
+        padding-left: 16px;
+        text-align: center;
+        width: 25vw;
+      }
+    }
+    &._android {
+      background: #faecfc;
+      top: 278px;
+      left: 354px;
+      transition-delay: 0.04s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        left: 294px;
+        top: 260px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        top: 218px;
+        left: 220px;
+      }
+      @include media(0, $mediaMobile) {
+        left: auto;
+        right: 0;
+        top: 170px;
+        width: 150px;
+        text-align: center;
+      }
+    }
+    &._backend {
+      background: rgba(#26c7eb, 0.2);
+      top: 390px;
+      left: 386px;
+      transition-delay: 0.05s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        top: 380px;
+        left: 320px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        top: 310px;
+        left: 190px;
+      }
+      @include media(0, $mediaMobile) {
+        max-width: 174px;
+        width: 48vw;
+        text-align: center;
+        top: 232px;
+        left: 0;
+      }
+    }
+    &._age {
+      background: #eef7d1;
+      height: 296px;
+      padding: 60px 68px 54px 68px;
+      top: 88px;
+      border-radius: 60px;
+      left: 596px;
+      align-items: center;
+      text-align: center;
+      transition-delay: 0.045s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        height: 250px;
+        padding: 50px 44px 44px 44px;
+        border-radius: 60px;
+        left: 490px;
+        top: 70px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        left: 400px;
+        top: 0px;
+        padding: 32px 50px;
+        height: 200px;
+      }
+      @include media(0, $mediaMobile) {
+        left: auto;
+        right: 0;
+        top: 242px;
+        max-width: 136px;
+        width: 35vw;
+        height: 170px;
+        padding: 24px;
+      }
+    }
+    &._team {
+      background: #d7effe;
+      width: 330px;
+      padding: 40px 50px;
+      top: 44px;
+      border-radius: 50px;
+      left: 860px;
+      @extend %row;
+      align-items: center;
+      transition-delay: 0.08s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 298px;
+        padding: 24px 40px;
+        top: -14px;
+        left: 680px;
+        border-radius: 50px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        left: 376px;
+        top: 250px;
+        width: 240px;
+        padding: 20px 30px;
+      }
+      @include media(0, $mediaMobile) {
+        left: 50%;
+        transform: translate(-50%, 0) scale(0);
+        top: 460px;
+        width: 270px;
+        height: 90px;
+        padding: 24px;
+        justify-content: center;
+        &._show {
+          transform: translate(-50%, 0) scale(1);
+        }
+      }
+    }
+    &._fixprice {
+      background: #dae9f3;
+      padding: 32px 42px;
+      bottom: 28px;
+      left: 852px;
+      border-radius: 50px;
+      text-align: center;
+      align-items: center;
+      transition-delay: 0.033s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding: 24px 42px;
+        left: 580px;
+        bottom: -58px;
+        border-radius: 50px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        left: 310px;
+        bottom: -70px;
+        padding: 26px 38px;
+        & br {
+          display: none;
+        }
+      }
+      @include media(0, $mediaMobile) {
+        left: 0;
+        bottom: auto;
+        top: 370px;
+        padding: 24px;
+        max-width: 186px;
+        width: 50vw;
+        // w30vw
+        height: 70px;
+        padding: 12px;
+      }
+    }
+    &._pricetohour {
+      background: #f5eeee;
+      right: 28px;
+      top: 112px;
+      transition-delay: 0.061s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        top: 368px;
+        padding: 16px 20px;
+        right: -6px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        right: 0;
+        bottom: 46px;
+        padding: 16px 32px;
+        top: auto;
+      }
+      @include media(0, $mediaMobile) {
+        left: 0;
+        right: auto;
+        top: 300px;
+        padding-right: 4px;
+        padding-left: 4px;
+        text-align: center;
+        max-width: 170px;
+        width: 48vw;
+        white-space: nowrap;
+      }
+    }
+    &._mind {
+      background: #eaeaf6;
+      right: 0;
+      bottom: 54px;
+      padding: 56px 72px;
+      border-radius: 80px;
+      transition-delay: 0.092s;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        border-radius: 70px;
+        padding: 26px 42px;
+        bottom: 104px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding: 26px 60px 26px 46px;
+        left: 0;
+        right: auto;
+        bottom: -10px;
+      }
+      @include media(0, $mediaMobile) {
+        bottom: auto;
+        right: 10px;
+        top: 570px;
+        width: 236px;
+        height: 90px;
+        padding: 18px 40px;
+      }
+    }
+    &Counter {
+      @extend %reset;
+      max-width: 100%;
+      color: $colorMain;
+      font-family: "Bold";
+    }
+    &._projets &Counter {
+      font-size: 120px;
+      line-height: 1;
+      margin: -12px 0 14px -2px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 100px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 84px;
+        margin-bottom: 4px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 62px;
+        margin: 0 0 4px 0;
+      }
+    }
+    &._age &Counter {
+      font-size: 122px;
+      line-height: 1;
+      margin: -12px 0 -2px -2px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 122px;
+        margin: -18px 0 -10px 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 100px;
+        margin-bottom: -8px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 62px;
+        margin: 0 0 10px 0;
+      }
+    }
+    &._team &Counter {
+      font-size: 82px;
+      line-height: 1;
+      margin: 0 24px 0 0;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 82px;
+        margin-right: 18px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 64px;
+        margin-right: 12px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 62px;
+        margin: 0 18px 0 -10px;
+      }
+    }
+    &Description {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 26px;
+      line-height: 1.2;
+      color: $colorDark;
+      font-family: "Bold";
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 23px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 20px;
+      }
+    }
+    &._mind &Description {
+      font-size: 38px;
+      line-height: 1;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 34px;
+        line-height: 1.15;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 28px;
+        line-height: 1.1;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.pagenation {
+  width: 100%;
+  @extend %reset;
+  @extend %row;
+  align-items: center;
+  &._light &__item:not(._current) {
+    background: #fff;
+    @include media(0, $mediaMobile) {
+      background: #c4c4c4;
+    }
+  }
+  &__item {
+    @extend %reset;
+    @extend %click;
+    width: 10px;
+    height: 6px;
+    background: #c4c4c4;
+    border-radius: 10px;
+    transition: $trans;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 5px;
+      width: 8px;
+    }
+    & + & {
+      margin-left: 10px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-left: 8px;
+      }
+    }
+    &._current {
+      width: 20px;
+      background: $colorDark;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 16px;
+      }
+    }
+  }
+}

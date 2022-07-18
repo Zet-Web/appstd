@@ -1,0 +1,59 @@
+.caseCases {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  $paddingServices: calc(calc(100vw - #{$widthContent}) / 2);
+  $paddingServices2: calc(calc(100vw - #{$widthContentMedium}) / 2);
+  @include media($mediaMobileEnd, $mediaTablet) {
+    overflow: hidden;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      max-width: 100%;
+      padding: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 100%;
+      padding: 0;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  &__items {
+    @extend %reset;
+    width: 100%;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding-left: 64px;
+    }
+  }
+  &__item {
+    @extend %reset;
+    width: calc(100% + #{$paddingServices});
+    // height: 880px;
+    height: 100%;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 100%;
+      height: 900px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 100%;
+    }
+    & + & {
+      margin-top: 80px;
+      // @include media($mediaMobileEnd, $mediaTablet) {
+      //   margin-top: 80px;
+      // }
+      @include media(0, $mediaMobile) {
+        margin-top: 64px;
+      }
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

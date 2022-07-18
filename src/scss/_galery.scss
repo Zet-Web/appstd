@@ -1,0 +1,72 @@
+.galery {
+  width: 100%;
+  height: 100%;
+  @extend %reset;
+  @extend %col;
+  background: rgba($colorDark, 0.25);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @include media(0, $mediaMobile) {
+    background: #fbfbfb;
+  }
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    @extend %reset;
+    @extend %click;
+    z-index: 10;
+    @include icon(#fff);
+    @include media(0, $mediaMobile) {
+      @include icon($colorDark);
+    }
+  }
+  &__inner {
+    @extend %reset;
+    height: 85vh;
+    width: 100%;
+    @include media(0, $mediaMobile) {
+      height: 75vh;
+    }
+  }
+  &__items {
+    display: inline-flex;
+    @extend %reset;
+    height: 100%;
+  }
+  &__item {
+    @extend %reset;
+    width: 100vw;
+    height: 100%;
+    @extend %row;
+    justify-content: center;
+    &Image {
+      @extend %reset;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+  }
+  &__footer {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    margin-top: 20px;
+  }
+  &__arrow {
+    @extend %reset;
+    width: 60px;
+    height: 60px;
+    @include media(0, $mediaMobile) {
+      display: none;
+    }
+  }
+  &__pagenation {
+    @extend %reset;
+    margin: 0 20px;
+  }
+}

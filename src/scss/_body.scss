@@ -1,0 +1,171 @@
+body {
+  width: 100%;
+  // height: 10000px;
+  @extend %reset;
+  position: relative;
+  font-family: "Regular";
+  background: #fbfbfd;
+}
+
+.body {
+  &__topBar {
+    @extend %reset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 80px;
+    }
+    @include media(0, $mediaMobile) {
+      height: 80px;
+    }
+  }
+  &__sections {
+    @extend %reset;
+    width: 100%;
+    position: relative;
+  }
+  &__section {
+    @extend %reset;
+    width: 100%;
+    &._404Page {
+      height: 100vh;
+    }
+  }
+  &__menu {
+    @extend %reset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    opacity: 0;
+    transition: $trans;
+    // will-change: opacity;
+    &._show {
+      opacity: 1;
+    }
+  }
+  &__buttonUp {
+    @extend %reset;
+    position: fixed;
+    bottom: 124px;
+    right: 124px;
+    z-index: 8;
+    width: 76px;
+    height: 76px;
+    opacity: 0;
+    visibility: hidden;
+    transition: $trans;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      width: 66px;
+      height: 66px;
+      bottom: 114px;
+      right: 64px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+    }
+    @include media(0, $mediaMobile) {
+      width: 56px;
+      height: 56px;
+      bottom: 64px;
+      right: 20px;
+    }
+    &._show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__cookies {
+    @extend %reset;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    width: 422px;
+    transition: $trans;
+    will-change: transform;
+    &._hide {
+      transform: translate3d(0, 100%, 0);
+    }
+    @include media(0, $mediaMobile) {
+      width: calc(100% - 20px);
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+  &__popup {
+    @extend %reset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    opacity: 0;
+    transition: $trans;
+    will-change: opacity;
+    &._show {
+      opacity: 1;
+    }
+  }
+  &__stagesInfo {
+    @extend %reset;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    opacity: 0;
+    transition: $trans;
+    will-change: opacity;
+    &._show {
+      opacity: 1;
+    }
+  }
+  &__mobileFooter {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 7;
+  }
+  &__inner._index &__mobileFooter {
+    position: fixed;
+  }
+  &__galery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    transition: $trans;
+    &._show {
+      opacity: 1;
+    }
+  }
+  &__portfolioPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0;
+    transition: $trans;
+    &._show {
+      opacity: 1;
+    }
+  }
+}

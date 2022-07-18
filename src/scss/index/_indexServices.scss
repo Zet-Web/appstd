@@ -1,0 +1,107 @@
+.indexServices {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  padding: 150px 0;
+  $paddingServices: calc(
+    calc(100vw - #{$widthContent - $paddingMediumContent * 2}) / 2
+  );
+  $paddingServicesMedium: $paddingMediumContent + $paddingContent;
+  $paddingServices2: calc(
+    calc(100vw - #{$widthContentMedium - $paddingMediumContent2 * 2}) / 2
+  );
+  $paddingServicesMedium2: $paddingMediumContent2 + $paddingContent;
+  overflow: hidden;
+  @include media(0, $mediaMobile) {
+    padding: 32px 0 64px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      max-width: 100%;
+      padding: 0;
+    }
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  &__content {
+    @extend %reset;
+    width: 100%;
+    height: 880px;
+    position: relative;
+    @extend %innerMedium;
+    @include media($mediaMobileEnd, $mediaDesktop) {
+      height: 722px;
+      padding-left: 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      height: 940px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 0;
+      height: auto;
+    }
+  }
+  &__nav {
+    @extend %reset;
+    position: absolute;
+    bottom: 52px;
+    left: 190px;
+    z-index: 3;
+    @include media($mediaMobileEnd, $mediaDesktop) {
+      bottom: 42px;
+      left: 154px;
+    }
+  }
+  &__items {
+    width: 100%;
+    position: relative;
+    display: inline-flex;
+    transition: $transLong;
+    @include media(0, $mediaMobile) {
+      display: block;
+    }
+  }
+  &__item {
+    @extend %reset;
+    width: calc(100% + #{$paddingServices});
+    height: 880px;
+    transition: $trans;
+    will-change: transform;
+    margin-right: $paddingServices;
+    @include media($mediaMobileEnd, $mediaDesktop) {
+      width: calc(100% + #{$paddingServices2});
+      height: 722px;
+      margin-right: calc(#{$paddingServices2} - 88px);
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 100vw;
+      height: 940px;
+      margin-right: 0;
+    }
+    @include media(0, $mediaMobile) {
+      opacity: 1;
+      visibility: visible;
+      transition: none;
+      margin-right: 0;
+    }
+    &._show {
+      opacity: 1;
+      visibility: visible;
+    }
+    // @include media(0, $widthContent + $paddingContent * 2) {
+    //     width: calc(100% + #{$paddingServicesMedium});
+    // }
+    @include media(0, $mediaMobile) {
+      position: relative;
+      width: 100%;
+      height: auto;
+      & + & {
+        margin-top: 76px;
+      }
+    }
+  }
+}

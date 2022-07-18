@@ -1,0 +1,388 @@
+.topBar {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  height: 100%;
+  background: rgba(251, 251, 253, 0.6);
+  &:not(._showMenu) {
+    @include blur(24px);
+  }
+  transition: $trans;
+  &._showMenu {
+    background: none;
+    @include media(0, $mediaMobile) {
+      background: rgba(251, 251, 253, 0.8);
+    }
+    // @include blur(0px);
+  }
+  &__inner {
+    @extend %reset;
+    @extend %row;
+    width: 100%;
+    max-width: 1738px;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 20px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      // max-width: 1420px;
+      padding: 0 42px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 24px;
+    }
+  }
+  &__item {
+    @extend %row;
+    align-items: center;
+    &._info {
+      @include media(0, $mediaMobile) {
+        width: 100%;
+      }
+    }
+    &._actions {
+      margin-left: auto;
+      padding-right: 88px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding-right: 64px;
+      }
+      // @include media(0, 1400px) {
+      //     padding-right: 0;
+      // }
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+  }
+  &._showMenu &__icon {
+    background: #fff;
+    @include mediaMin($mediaMobileEnd) {
+      &:hover {
+        // background: $colorMain;
+      }
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    &::before,
+    &::after {
+      width: 26px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 20px;
+      }
+      // margin: 0;
+    }
+    &Item {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &:not(._showMenu) &__icon {
+    @include mediaMin($mediaMobileEnd) {
+      &:hover::before,
+      &:hover::after {
+        width: 26px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 18px;
+        }
+      }
+      &:hover::before {
+        margin-left: 9px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+  &__icon {
+    @extend %reset;
+    @extend %click;
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: $colorMainLight;
+    position: relative;
+    margin-right: 44px;
+    transition: $trans;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 34px;
+      height: 34px;
+      margin-right: 22px;
+    }
+    @include media(0, $mediaMobile) {
+      order: 3;
+      margin-right: 0;
+    }
+    &::before,
+    &::after {
+      @extend %reset;
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: $colorDark;
+      top: 0;
+      left: 0;
+      transition: $trans;
+      will-change: transform;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 14px;
+      }
+    }
+    &::before {
+      transform-origin: 2px -2px;
+      margin: 14px 0 0 15px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        transform-origin: 1px -2.5px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 11px 0 0 12px;
+        transform-origin: 1px -2px;
+      }
+    }
+    &::after {
+      transform-origin: 4.5px -2.5px;
+      margin: 28px 0 0 9px;
+      width: 16px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin: 21px 0 0 8px;
+        width: 14px;
+        transform-origin: 4px 0px;
+      }
+    }
+    &Item {
+      width: 26px;
+      height: 2px;
+      transition: $trans;
+      background: $colorDark;
+      will-change: opacity;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 18px;
+      }
+    }
+  }
+  &__logo {
+    @extend %reset;
+    @extend %click;
+    width: 90px;
+    height: 66px;
+    object-fit: contain;
+    display: block;
+    margin-right: 40px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 90px;
+      height: 66px;
+      margin-right: 36px;
+    }
+    @include media(0, $mediaMobile) {
+      width: 88px;
+      height: 66px;
+      order: 1;
+      margin-right: 0;
+      margin-left: -8px;
+    }
+    &Inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        128.81deg,
+        #7ecaa6 16%,
+        #61bdd1 33.63%,
+        #cf6ddd 52.37%,
+        #4061f8 75.98%
+      );
+      clip-path: url("#logo");
+      display: block;
+      // transform-origin: 1px center;
+      // margin-left: 1px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        transform: scale(0.8);
+      }
+      @include media(0, $mediaMobile) {
+        transform: scale(0.8);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(
+          128.81deg,
+          #7ecaa6,
+          #61bdd1,
+          #cf6ddd,
+          #4061f8,
+          #7ecaa6,
+          #61bdd1,
+          #cf6ddd,
+          #4061f8,
+          #7ecaa6,
+          #61bdd1
+        );
+        transition: $trans;
+        opacity: 0;
+        @keyframes gradientLogo {
+          0% {
+            transform: translate(0, 0);
+          }
+          100% {
+            transform: translate(-50%, 0);
+          }
+        }
+        animation: gradientLogo 0.8s infinite linear;
+      }
+    }
+    @include mediaMin($mediaMobileEnd) {
+      &:hover &Inner::before {
+        opacity: 1;
+      }
+    }
+  }
+  &._showMenu &__button {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__button {
+    @extend %reset;
+    width: 200px;
+    transition: $trans;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 130px;
+    }
+    @include media(0, $mediaMobile) {
+      order: 2;
+      width: 140px;
+      margin: 0 20px 0 auto;
+    }
+  }
+  &__socials {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    @include media(0, $mediaMobile) {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 90px;
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: $trans;
+    }
+  }
+  &._showMenu &__socials {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__social {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    @extend %col;
+    @extend %reset;
+    @extend %click;
+    transition: $trans;
+    @include mediaMin($mediaMobileEnd) {
+      &:hover {
+        background: #e6f7fe;
+      }
+    }
+    & + & {
+      margin-left: 10px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        margin-left: 12px;
+      }
+    }
+    &Icon {
+      @extend %reset;
+      width: 26px;
+      height: 26px;
+    }
+    &._tg &Icon {
+      @include bg("icon-tg.svg", contain, center);
+    }
+    &._wa &Icon {
+      @include bg("icon-wa.svg", contain, center);
+    }
+  }
+  &._showMenu &__nav {
+    width: 0;
+    margin-left: 0;
+    &Inner {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &__nav {
+    width: 355px;
+    @extend %reset;
+    margin-left: 48px;
+    transition: $trans;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-left: 20px;
+      width: 240px;
+    }
+    &Inner {
+      @extend %reset;
+      @extend %row;
+      align-items: center;
+      width: 355px;
+      transition: $trans;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 240px;
+      }
+    }
+    &Item {
+      @extend %reset;
+      & + & {
+        margin-left: 52px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          margin-left: 20px;
+        }
+      }
+    }
+    &Link {
+      @extend %reset;
+      @extend %row;
+      @extend %click;
+      align-items: center;
+      font-size: 16px;
+      line-height: 18px;
+      font-family: "Bold";
+      white-space: nowrap;
+      color: $colorDark;
+      transition: $trans;
+      @include mediaMin($mediaMobileEnd) {
+        &:hover {
+          color: $colorMain;
+        }
+        &:hover .arrowBox__icon {
+          animation: arrowBox 0.5s infinite linear;
+        }
+      }
+    }
+    &Icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 12px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        display: none;
+      }
+    }
+  }
+}

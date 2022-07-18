@@ -1,0 +1,26 @@
+.linkArrow {
+  @extend %reset;
+  @extend %click;
+  @extend %row;
+  width: 100%;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Bold";
+  color: $colorDark;
+  transition: $trans;
+  &__icon {
+    @extend %reset;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+  @include mediaMin($mediaMobileEnd) {
+    &:hover {
+      color: $colorMain;
+    }
+    &:hover .arrowBox__icon {
+      animation: arrowBox 0.5s infinite linear;
+    }
+  }
+}

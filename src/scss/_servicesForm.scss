@@ -1,0 +1,639 @@
+.servicesForm {
+  @extend %reset;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  position: relative;
+  &__loader {
+    @extend %reset;
+    @extend %col;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: rgba($colorDark, 0.25);
+    opacity: 0;
+    transition: $trans;
+    visibility: hidden;
+    &._show {
+      opacity: 1;
+      visibility: visible;
+    }
+    &Inner {
+      @extend %reset;
+      width: 162px;
+      height: 162px;
+    }
+  }
+  &__steps {
+    @extend %reset;
+    height: 100%;
+    display: inline-flex;
+    transition: $transLong;
+    will-change: transform;
+  }
+  &__step {
+    @extend %reset;
+    height: 100%;
+  }
+  &__head {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    padding: 32px 52px;
+    border-bottom: 1px dashed #d3d5dc;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 30px 20px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 20px;
+      height: 220px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &Info {
+      @extend %reset;
+      height: 100%;
+      justify-content: center;
+      @extend %col;
+      position: relative;
+      z-index: 1;
+      padding-left: 38px;
+      @include media(0, $mediaMobile) {
+        padding-top: 20px;
+        padding-left: 32px;
+        height: auto;
+      }
+      &Back {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 0;
+        width: 120px;
+        height: 140px;
+        border-radius: 40px;
+        background: #d2f4e4;
+        z-index: -1;
+        @include media(0, $mediaMobile) {
+          width: 86px;
+          height: 100px;
+          border-radius: 30px;
+        }
+      }
+      &Content {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 32px;
+        line-height: 1.1;
+        font-family: "Bold";
+        color: $colorDark;
+        @include media(0, $mediaMobile) {
+          font-size: 22px;
+        }
+        & span {
+          font-size: 52px;
+          @include media($mediaMobileEnd, $mediaTablet) {
+            font-size: 48px;
+          }
+          @include media(0, $mediaMobile) {
+            font-size: 32px;
+          }
+        }
+        & + & {
+          margin-top: 2px;
+        }
+      }
+    }
+    &Button {
+      @extend %reset;
+      width: 200px;
+      height: 60px;
+      margin-left: auto;
+      @include media(0, $mediaMobile) {
+        margin-top: 38px;
+      }
+    }
+  }
+  &__info {
+    @extend %reset;
+    width: 100%;
+    height: calc(100% - 200px);
+    padding: 26px 20px 26px 52px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 26px 20px;
+    }
+    @include media(0, $mediaMobile) {
+      height: calc(100% - 220px);
+      padding: 20px 10px 20px 20px;
+    }
+    &Inner {
+      @extend %reset;
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      padding-right: 32px;
+      font-size: 16px;
+      line-height: 1.5;
+      font-family: "Light";
+      color: $colorDark;
+      @extend %scroll;
+      @include media(0, $mediaMobile) {
+        padding-right: 10px;
+      }
+      & h3 {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 32px;
+        line-height: 1.2;
+        color: $colorDark;
+        font-family: "Bold";
+        margin-bottom: 18px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          font-size: 28px;
+        }
+        @include media(0, $mediaMobile) {
+          font-size: 20px;
+        }
+      }
+      & h4 {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 1.3;
+        font-family: "Medium";
+        color: $colorDark;
+        margin-bottom: 24px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          font-size: 16px;
+        }
+        @include media(0, $mediaMobile) {
+          font-size: 16px;
+        }
+      }
+      & p,
+      & li {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: "Light";
+        color: $colorDark;
+        margin-bottom: 20px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          font-size: 14px;
+        }
+        @include media(0, $mediaMobile) {
+          font-size: 14px;
+        }
+      }
+      & ul,
+      & ol {
+        padding-left: 20px;
+        @include media(0, $mediaMobile) {
+          padding-left: 16px;
+        }
+      }
+      & li {
+        list-style-type: disc;
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      & b,
+      & strong {
+        font-family: "Bold";
+        font-weight: normal;
+      }
+      & img {
+        max-width: 100%;
+      }
+    }
+  }
+  &__form {
+    @extend %reset;
+    width: 100%;
+    padding: 46px 52px;
+    position: relative;
+    z-index: 1;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 40px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 40px 30px;
+    }
+    @include media(0, $mediaMobile) {
+      padding: 20px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 590px;
+      height: 590px;
+      @include bg("image-form-marketplace.png", contain, right top);
+      z-index: -1;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 500px;
+        height: 500px;
+        right: -40px;
+        top: -64px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        display: none;
+      }
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+    &Inner {
+      @extend %reset;
+      @extend %col;
+      width: 100%;
+      max-width: 750px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        max-width: 640px;
+      }
+    }
+    &Title {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 32px;
+      line-height: 1.15;
+      font-family: "Medium";
+      color: $colorDark;
+      margin-bottom: 16px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 28px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 22px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 20px;
+      }
+    }
+    &Info {
+      @extend %reset;
+      @extend %row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 20px 56px 0 0;
+      margin-bottom: 52px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding-right: 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 0;
+      }
+      @include media(0, $mediaMobile) {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-right: 0;
+      }
+    }
+    &Times {
+      @extend %reset;
+      @extend %row;
+      align-items: center;
+      width: 48%;
+      position: relative;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 60%;
+        margin-bottom: 20px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        margin-bottom: 26px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 100%;
+        margin-left: 30px;
+        height: 30px;
+        border-right: 1px dashed #d3d5dc;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin-left: 20px;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          display: none;
+        }
+        @include media(0, $mediaMobile) {
+          display: none;
+        }
+      }
+      &Support {
+        @extend %reset;
+        font-size: 16px;
+        font-family: "Regular";
+        color: #000;
+        margin-right: 20px;
+        @include media(0, $mediaMobile) {
+          margin-right: 12px;
+        }
+      }
+      &Select {
+        @extend %reset;
+        width: 116px;
+        height: 48px;
+        @include media(0, $mediaMobile) {
+          width: 106px;
+        }
+      }
+      &Select + &Support {
+        margin-left: 22px;
+        @include media(0, $mediaMobile) {
+          margin-left: 12px;
+        }
+      }
+    }
+    &Socials {
+      @extend %reset;
+      @extend %row;
+      position: relative;
+      align-items: center;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding-left: 28px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-left: -3px;
+      }
+      &Error {
+        @extend %reset;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 4px;
+        font-size: 12px;
+        font-family: "Regular";
+        color: $colorError;
+      }
+    }
+    &Social {
+      @extend %reset;
+      width: 44px;
+      height: 44px;
+      display: block;
+      @include media(0, $mediaMobile) {
+        width: 40px;
+        height: 40px;
+      }
+      & + & {
+        margin-left: 6px;
+        @include media(0, $mediaMobile) {
+          margin-left: 4px;
+        }
+      }
+      &Input {
+        display: none;
+      }
+      &View {
+        @extend %reset;
+        @extend %click;
+        @extend %col;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid transparent;
+        transition: $transLong;
+        border-radius: 10px;
+      }
+      &Input:checked ~ &View {
+        border-color: $colorMain;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06),
+          0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      &Icon {
+        @extend %reset;
+        width: 36px;
+        height: 36px;
+        @include media(0, $mediaMobile) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+    &Fields {
+      @extend %reset;
+      @extend %row;
+      justify-content: space-between;
+      width: 100%;
+      padding-right: 42px;
+      margin-bottom: 36px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        padding-right: 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding-right: 0;
+      }
+      @include media(0, $mediaMobile) {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-right: 0;
+      }
+    }
+    &Field {
+      @extend %reset;
+      width: 48%;
+      height: 32px;
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        & + & {
+          margin-top: 26px;
+        }
+      }
+    }
+    &Task {
+      @extend %reset;
+      @extend %col;
+      width: 100%;
+      margin-bottom: 28px;
+      &About {
+        @extend %reset;
+        max-width: 100%;
+        font-size: 18px;
+        font-family: "Regular";
+        color: $colorGrey;
+        margin-bottom: 10px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          font-size: 16px;
+          margin-bottom: 18px;
+        }
+        @include media($mediaMobileEnd, $mediaTablet) {
+          font-size: 14px;
+          margin-bottom: 18px;
+        }
+        @include media(0, $mediaMobile) {
+          font-size: 13.5px;
+          line-height: 1.2;
+        }
+      }
+      &Field {
+        @extend %reset;
+        width: 100%;
+        & .field._height._area .field__input {
+          @include media($mediaMobileEnd, $mediaTablet) {
+            min-height: 66px;
+          }
+        }
+      }
+    }
+    &Foot {
+      @extend %reset;
+      @extend %row;
+      width: 100%;
+      @include media(0, $mediaMobile) {
+        flex-direction: column;
+      }
+    }
+    &Files {
+      @extend %reset;
+      @extend %row;
+      @include media(0, $mediaMobile) {
+        margin-bottom: 20px;
+      }
+    }
+    &File {
+      @extend %reset;
+      width: 50px;
+      margin-right: 16px;
+      &Head {
+        @extend %reset;
+        width: 100%;
+        height: 60px;
+        border-radius: 4px;
+        border: 2px solid #d3d5dc;
+        margin-bottom: 6px;
+        position: relative;
+        @extend %col;
+        justify-content: center;
+        align-items: center;
+      }
+      &._more &Head {
+        font-size: 16px;
+        font-family: "Medium";
+        color: $colorMain;
+        border-color: transparent;
+      }
+      &Delete {
+        @extend %reset;
+        @extend %click;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        width: 16px;
+        height: 16px;
+        z-index: 2;
+        display: block;
+      }
+      &Icon {
+        @extend %reset;
+        width: 28px;
+        height: 36px;
+        display: block;
+      }
+      &Name {
+        @extend %reset;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $colorDark;
+        font-size: 11px;
+        font-family: "Regular";
+      }
+    }
+    &Upload {
+      @extend %reset;
+      @extend %row;
+      @extend %click;
+      align-items: center;
+      &Input {
+        display: none;
+      }
+      @include mediaMin($mediaMobileEnd) {
+        &:hover &Btn {
+          background: #eaf0f6;
+        }
+      }
+      &Btn {
+        @extend %reset;
+        @extend %col;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 60px;
+        background: #fbfbfd;
+        transition: $trans;
+        border-radius: 10px;
+        margin-right: 10px;
+        &Icon {
+          @extend %reset;
+          width: 26px;
+          height: 26px;
+          @include media(0, $mediaMobile) {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+      &Content {
+        @extend %reset;
+        font-size: 14px;
+        font-family: "Regular";
+        color: $colorDark;
+      }
+    }
+    &Actions {
+      @extend %row;
+      @extend %reset;
+      align-items: center;
+      margin-left: auto;
+    }
+    &Action {
+      @extend %reset;
+      &._main {
+        width: 170px;
+        height: 60px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          width: 140px;
+        }
+      }
+      & + & {
+        margin-left: 40px;
+        @include media($mediaMobileEnd, $mediaTablet) {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}

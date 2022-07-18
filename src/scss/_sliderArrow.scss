@@ -1,0 +1,54 @@
+.sliderArrow {
+  @extend %reset;
+  @extend %click;
+  @extend %col;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: $colorMain;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.1);
+  transition: $trans;
+  &:hover {
+    background: #fff;
+
+  }
+  &[data-disable] {
+    background: #959596;
+    & .icon__item {
+      fill: #000;
+      opacity: 1;
+    }
+    pointer-events: none;
+    // box-shadow: none;
+    opacity: 0.3;
+  }
+  .body__inner:not(._mobile) &:hover {
+    background: #fff;
+    @include icon($colorDark);
+  }
+  @include media(0, $mediaTablet) {
+    &:active {
+      background: $colorMain;
+    }
+    &:active &__icon {
+      @include icon(#fff);
+    }
+  }
+  &__icon {
+    @extend %reset;
+    width: 14px;
+    height: 14px;
+    @include icon($colorDark);
+    & .icon__item {
+      fill: #fff;
+    }
+  }
+  &._next &__icon {
+    margin-left: 2px;
+  }
+  &._prev &__icon {
+    margin-left: -2px;
+  }
+}

@@ -1,0 +1,77 @@
+.loader {
+  @extend %reset;
+  @extend %col;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    background: linear-gradient(
+      128.81deg,
+      #7ecaa6,
+      #61bdd1,
+      #cf6ddd,
+      #4061f8,
+      #7ecaa6,
+      #61bdd1,
+      #cf6ddd,
+      #4061f8,
+      #7ecaa6
+    );
+    @keyframes gradientLoader {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+    animation: gradientLoader 1s infinite linear;
+  }
+  @include media($mediaMobileEnd, $mediaDesktop) {
+    border-radius: 36px;
+  }
+  &__icon {
+    @extend %reset;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    @include media($mediaMobileEnd, $mediaDesktop) {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 16px;
+    }
+    @keyframes loader {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    animation: loader 2.5s infinite linear;
+  }
+  &__description {
+    @extend %reset;
+    max-width: 100%;
+    text-align: center;
+    font-family: "Regular";
+    font-size: 12px;
+    color: #e6f7fe;
+    @include media($mediaMobileEnd, $mediaDesktop) {
+      font-size: 11px;
+    }
+  }
+}

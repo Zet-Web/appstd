@@ -1,0 +1,153 @@
+.popup {
+  @extend %reset;
+  @extend %col;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba($colorDark, 0.25);
+  @include media(0, $mediaMobile) {
+    background: #fbfbfd;
+    justify-content: flex-start;
+    padding: 20px 28px;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %col;
+    align-items: center;
+    padding: 20px 42px 36px 42px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.25);
+    position: relative;
+    @include media(0, $mediaMobile) {
+      background: none;
+      box-shadow: none;
+      position: static;
+    }
+  }
+  &._successForm &__inner {
+    width: 440px;
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      padding: 52px 0 0 0;
+    }
+  }
+  &._errorForm &__inner {
+    width: 630px;
+    padding-top: 60px;
+    @include media(0, $mediaMobile) {
+      width: 100%;
+      padding: 144px 0 0 0;
+    }
+  }
+  &__close {
+    @extend %reset;
+    @extend %col;
+    @extend %click;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: $trans;
+    will-change: transform;
+    @include mediaMin($mediaMobileEnd) {
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+    @include media(0, $mediaMobile) {
+      background: #fff;
+      width: 46px;
+      height: 46px;
+    }
+    &Icon {
+      @extend %reset;
+      width: 32px;
+      height: 32px;
+    }
+  }
+  &__icon {
+    @extend %reset;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 14px;
+    @include media(0, $mediaMobile) {
+      margin-bottom: 20px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.2;
+    font-family: "Bold";
+    color: $colorDark;
+    margin-bottom: 12px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 18px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+  &._errorForm &__title {
+    margin-bottom: 30px;
+    @include media(0, $mediaMobile) {
+      margin-bottom: 40px;
+    }
+  }
+  &__description {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.3;
+    font-family: "Regular";
+    color: $colorGrey;
+    text-align: center;
+    margin-bottom: 20px;
+    @include media(0, $mediaMobile) {
+      margin-bottom: 40px;
+    }
+  }
+  &__buttons {
+    @extend %reset;
+    @extend %row;
+    justify-content: center;
+    width: 100%;
+    @include media(0, $mediaMobile) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+  &__button {
+    @extend %reset;
+    width: 254px;
+    height: 60px;
+    &._auto {
+      width: auto;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: auto;
+      }
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: 220px;
+      height: 50px;
+    }
+    & + & {
+      margin-left: 20px;
+      @include media(0, $mediaMobile) {
+        margin-top: 20px;
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.caseOrder {
+  @extend %reset;
+  width: 100%;
+  padding: 70px 0 100px 0;
+  @extend %section;
+  overflow: hidden;
+  @include media(0, $mediaMobile) {
+    padding: 40px 0 80px 0;
+  }
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__content {
+    width: 100%;
+    @extend %reset;
+    @extend %innerMedium;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding: 0 60px;
+    }
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding: 0;
+    }
+  }
+  &__title {
+    @extend %reset;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 84px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      max-width: 900px;
+      margin-bottom: 64px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 50px;
+    }
+  }
+  &__blocks {
+    width: 100%;
+  }
+  &__block {
+    @extend %reset;
+    @extend %col;
+    width: 100%;
+    & + & {
+      margin-top: 70px;
+    }
+    &Title {
+      @extend %reset;
+      max-width: 100%;
+      font-size: 26px;
+      font-family: "Medium";
+      color: $colorDark;
+      margin-bottom: 50px;
+      @include media(0, $mediaMobile) {
+        margin-bottom: 30px;
+      }
+    }
+    &Content {
+      @extend %reset;
+      width: 100%;
+    }
+    &Cards {
+      @extend %reset;
+      display: inline-flex;
+      will-change: transform;
+      transition: $trans;
+    }
+    &Card {
+      @extend %reset;
+      width: 400px;
+      height: 300px;
+      margin-right: 30px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 310px;
+        height: 280px;
+        margin-right: 46px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 290px;
+        height: 280px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 310px;
+        height: 300px;
+        margin-right: 10px;
+      }
+    }
+    &Arrows {
+      @extend %reset;
+      @extend %row;
+      margin: 50px 0 0 auto;
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+    &Arrow {
+      @extend %reset;
+      width: 60px;
+      height: 60px;
+      & + & {
+        margin-left: 20px;
+      }
+    }
+    &Form {
+      @extend %reset;
+      width: calc(100% + 8px);
+      margin-left: -4px;
+      height: 640px;
+      overflow: hidden;
+      @include media(0, $mediaMobile) {
+        height: 820px;
+      }
+      &Inner {
+        @extend %reset;
+        width: 100%;
+        height: 100%;
+        padding: 28px 4px 8px 4px;
+      }
+    }
+  }
+  &._ready &__blockForm {
+    transition: $trans;
+  }
+}

@@ -1,0 +1,204 @@
+%reset {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+  line-height: 1;
+  border: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  letter-spacing: unset;
+  box-sizing: border-box;
+  font-weight: 400;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin bg($url, $size, $pos) {
+  background: url("../img/#{$url}") no-repeat;
+  background-size: $size;
+  background-position: $pos;
+}
+
+@mixin mediaMin($w) {
+  @media screen and (min-width: $w) {
+    @content;
+  }
+}
+
+@mixin media($w1, $w2) {
+  @media screen and (min-width: $w1) and (max-width: $w2) {
+    @content;
+  }
+}
+
+html {
+  @extend %reset;
+  font-size: calc(100vw / 179);
+  @include media(0, 500px) {
+    font-size: calc(100vw / 52);
+  }
+}
+
+%row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+%col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+%inner {
+  max-width: $widthContent + 2 * $paddingContent;
+  padding: 0 $paddingContent;
+  width: 100%;
+  @extend %col;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    max-width: 1060px;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    max-width: $mediaMobile + 2 * $paddingContent;
+  }
+  @include media(0, $mediaMobile) {
+    width: 100%;
+  }
+}
+
+%innerMedium {
+  padding: 0 $paddingMediumContent;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    padding: 0 $paddingMediumContent2;
+  }
+  @include media(0, $mediaMobile) {
+    padding: 0;
+  }
+  // @include media(0,
+  // 1400px) {
+  //     padding: 0;
+  // }
+}
+
+%section {
+  position: relative;
+  width: 100%;
+  @extend %col;
+  align-items: center;
+}
+
+%click {
+  cursor: pointer;
+  user-select: none;
+  @include media(0, $mediaMobile) {
+    cursor: default;
+  }
+}
+
+@mixin icon($color, $stroke: null) {
+  @if ($stroke) {
+    & .icon__item {
+      stroke: $stroke;
+    }
+  }
+  & .icon__item {
+    fill: $color;
+  }
+  & .icon__stroke {
+    stroke: $color;
+  }
+}
+
+@mixin active() {
+  @include mediaMin(501px) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin blur($val) {
+  & {
+    -webkit-backdrop-filter: saturate(100%) blur($val);
+    backdrop-filter: saturate(100%) blur($val);
+  }
+}
+
+._elemDesktop {
+  @include media(0, $mediaMobile) {
+    display: none;
+  }
+}
+
+._elemMobile {
+  @include mediaMin(501px) {
+    display: none;
+  }
+}
+
+@mixin inParent($name) {
+  #{$name} & {
+    @content;
+  }
+}
+
+%pagenation {
+  @extend %reset;
+  @extend %section;
+  position: absolute;
+  width: 100%;
+  top: 128px;
+  left: 0;
+  @include media($mediaTabletEnd, $mediaDesktop) {
+    top: 128px;
+  }
+  @include media($mediaMobileEnd, $mediaTablet) {
+    top: 108px;
+  }
+  @include media(0, $mediaMobile) {
+    top: 88px;
+  }
+}
+
+a {
+  @extend %reset;
+}
+
+.textAnimate {
+  transform: translate3d(0, 16px, 0);
+  will-change: transform;
+  transition: $transLong;
+  opacity: 0;
+  &._show {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+%scroll {
+  -webkit-overflow-scrolling: auto;
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    background: #f6f6f6;
+    border-radius: 360px;
+    @include media(0, $mediaMobile) {
+      width: 6px;
+      height: 6px;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $colorMain;
+    border-radius: 360px;
+  }
+  &::-webkit-scrollbar-corner {
+    background: #f6f6f6;
+    border-radius: 360px;
+  }
+}

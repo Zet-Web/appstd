@@ -1,0 +1,545 @@
+.caseFull {
+  @extend %reset;
+  width: 100%;
+  height: 100%;
+  // background: #EBEDFA;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  @include media($mediaMobileEnd, $mediaTablet) {
+    overflow: visible;
+  }
+  @include media(0, $mediaMobile) {
+    overflow: visible;
+  }
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transition: 0.7s ease-in-out;
+    transition-delay: 0s;
+    z-index: -1;
+    border-radius: 60px;
+    @include inParent(".caseFull._hide") {
+      transform: translate3d(100%, 0, 0);
+      @include media($mediaMobileEnd, $mediaTablet) {
+        transform: translate3d(0, 0, 0);
+      }
+      @include media(0, $mediaMobile) {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      border-radius: 80px;
+    }
+  }
+  &__items {
+    @extend %reset;
+    width: 100%;
+    height: 100%;
+    @extend %row;
+    @include media(0, $mediaMobile) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    @extend %reset;
+    @extend %col;
+    height: 100%;
+    &._info {
+      padding: 60px 60px 76px 60px;
+      width: 710px;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 500px;
+        padding-right: 0px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        padding: 50px 4px 50px 50px;
+        width: 400px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        padding: 40px;
+      }
+    }
+    &._previews {
+      width: 696px;
+      position: relative;
+      z-index: 1;
+      margin-left: auto;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 500px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 234px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        right: 0;
+        width: 100%;
+        height: 460px;
+        background: rgba(#fff, 0.5);
+        border-radius: 360px 0 0 360px;
+        z-index: -1;
+        will-change: transform;
+        transition: 0.7s ease-in-out;
+        transition-delay: 0.1s;
+        @include inParent(".caseFull._hide") {
+          transform: translate3d(100%, -50%, 0);
+          @include media($mediaMobileEnd, $mediaTablet) {
+            transform: translate3d(0, -50%, 0);
+          }
+          @include media(0, $mediaMobile) {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        @include media(0, $mediaMobile) {
+          border-radius: 360px 360px 0 0;
+          bottom: 0;
+          top: auto;
+          transform: translate(-50%, 0);
+          left: 50%;
+          width: 100vw;
+          background: #fbfbfd;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &__types {
+    @extend %reset;
+    @extend %col;
+    margin-bottom: 48px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 40px;
+    }
+    @include media(0, $mediaMobile) {
+      margin-bottom: 24px;
+    }
+  }
+  &__type {
+    @extend %reset;
+    font-size: 22px;
+    line-height: 1.2;
+    font-family: "Bold";
+    color: $colorDark;
+    border-radius: 50px 40px 40px 0;
+    padding: 13px 27px;
+    background: #fff;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      border-radius: 32px 32px 32px 0;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      border-radius: 36px 32px 32px 0;
+      font-size: 20px;
+      padding: 12px 20px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+    &._min {
+      font-size: 18px;
+      border-radius: 0 20px 20px 20px;
+      margin-top: 2px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 16px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 15px;
+      }
+    }
+  }
+  &__info {
+    @extend %reset;
+    @extend %col;
+    margin-bottom: 58px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      margin-bottom: 30px;
+    }
+  }
+  &__title {
+    @extend %reset;
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+  &__about {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $colorDark;
+    font-family: "Regular";
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 14px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 14px;
+    }
+  }
+  &__price {
+    @extend %reset;
+    max-width: 100%;
+    font-size: 28px;
+    color: $colorDark;
+    font-family: "Medium";
+    margin-bottom: 40px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 18px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 20px;
+    }
+    & span {
+      font-size: 42px;
+      font-family: "Bold";
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 30px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 32px;
+      }
+    }
+  }
+  &__tags {
+    @extend %reset;
+    @extend %row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 24px;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      width: calc(100% + 10px);
+    }
+  }
+  &__tag {
+    @extend %reset;
+    font-size: 14px;
+    padding: 12px 24px 11px 24px;
+    border-radius: 360px;
+    text-align: center;
+    background: #fff;
+    font-family: "Medium";
+    color: $colorDark;
+    margin: 0 10px 10px 0;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      font-size: 13px;
+      padding: 9px 13px 8px 13px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      font-size: 12px;
+      padding: 8px 13px 7px 13px;
+    }
+    @include media(0, $mediaMobile) {
+      font-size: 12px;
+      padding: 8px 16px;
+    }
+  }
+  &__link {
+    @extend %reset;
+    @extend %row;
+    align-items: center;
+    @extend %click;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Bold";
+    color: $colorDark;
+    margin-top: auto;
+    @include media(0, $mediaMobile) {
+      margin: -24px auto 0 auto;
+      transform: translate(0, -16px);
+      justify-content: center;
+    }
+    &Icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+  }
+  &__slider {
+    @extend %reset;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-left: 282px;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      padding-left: 120px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      padding-left: 78px;
+    }
+    @include media(0, $mediaMobile) {
+      height: 660px;
+      padding-left: calc(calc(100vw - 214px) / 2);
+      padding-bottom: 160px;
+    }
+    &Items {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        opacity: 0;
+        transform: translate3d(100px, 0, 0);
+      }
+    }
+    &Item {
+      @extend %reset;
+      width: 275px;
+      height: 595px;
+      border-radius: 15px;
+      box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.1);
+      margin-right: 174px;
+      opacity: 0;
+      transition: $trans;
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 255px;
+        height: 550px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 210px;
+        height: 454px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 174px;
+        height: 376px;
+        margin-right: 15px;
+        opacity: 1;
+        background: #fff;
+      }
+      &[data-current] {
+        opacity: 1;
+      }
+    }
+    &Image {
+      @extend %reset;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      @extend %click;
+      @include media(0, $mediaMobile) {
+        opacity: 0.1;
+        transition: $trans;
+      }
+    }
+    &Item[data-current] &Image {
+      @include media(0, $mediaMobile) {
+        opacity: 1;
+      }
+    }
+    &Pagenation {
+      @extend %reset;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: 32px;
+      margin-left: 70px;
+      z-index: 2;
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        opacity: 0;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        bottom: 54px;
+        margin-left: -4px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        bottom: 82px;
+        margin-left: 56px;
+      }
+      @include media(0, $mediaMobile) {
+        margin-left: 0;
+        bottom: 190px;
+      }
+    }
+    &Arrows {
+      @extend %reset;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 32px;
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        opacity: 0;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        display: none;
+      }
+      @include media(0, $mediaMobile) {
+        display: none;
+      }
+    }
+    &Arrow {
+      @extend %reset;
+      width: 60px;
+      height: 60px;
+      & + & {
+        margin-top: 20px;
+      }
+    }
+    &Logo {
+      @extend %reset;
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      position: absolute;
+      top: 97px;
+      left: 140px;
+      z-index: 2;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        transform: translate3d(0, 32px, 0);
+        opacity: 0;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        top: 94px;
+        left: 6px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 56px;
+        height: 56px;
+        top: 140px;
+        left: 0px;
+      }
+      @include media(0, $mediaMobile) {
+        width: 60px;
+        height: 60px;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 30px 25px 50px rgba(0, 0, 0, 0.12);
+      }
+      &Icon {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &Links {
+      @extend %reset;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 80px;
+      width: 150px;
+      z-index: 2;
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        opacity: 0;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        width: 110px;
+        left: -34px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        display: none;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: auto;
+        bottom: 70px;
+        transform: translate(0, 0);
+        left: 0;
+      }
+    }
+    &Link {
+      @extend %reset;
+      @extend %click;
+      width: 100%;
+      display: block;
+      &._dis {
+        opacity: 0.5;
+        // pointer-events: none;
+      }
+      @include media(0, $mediaMobile) {
+        width: 150px;
+      }
+      & + & {
+        margin-top: 20px;
+        @include media($mediaTabletEnd, $mediaDesktop) {
+          margin-top: 14px;
+        }
+        @include media(0, $mediaMobile) {
+          margin: 0;
+        }
+      }
+      &Image {
+        @extend %reset;
+        width: 100%;
+      }
+    }
+    &Name {
+      @extend %reset;
+      width: 131px;
+      font-size: 16px;
+      line-height: 1.3;
+      color: $colorDark;
+      font-family: "Medium";
+      text-align: right;
+      position: absolute;
+      bottom: 118px;
+      left: 98px;
+      z-index: 2;
+      transition: $trans;
+      will-change: transform;
+      transition-delay: 0.3s;
+      @include inParent(".caseFull._hide") {
+        transform: translate3d(0, -32px, 0);
+        opacity: 0;
+      }
+      @include media($mediaTabletEnd, $mediaDesktop) {
+        font-size: 14px;
+        width: 120px;
+        left: -42px;
+        bottom: 62px;
+      }
+      @include media($mediaMobileEnd, $mediaTablet) {
+        font-size: 14px;
+        bottom: 40px;
+        left: -76px;
+      }
+      @include media(0, $mediaMobile) {
+        font-size: 14px;
+        width: 100%;
+        left: 0;
+        text-align: left;
+        bottom: 140px;
+      }
+      &::before {
+        content: "";
+        width: 15px;
+        height: 2px;
+        border-radius: 360px;
+        background: $colorMain;
+        display: inline-block;
+        margin-right: 8px;
+        transform: translate(0, -4px);
+      }
+    }
+  }
+}

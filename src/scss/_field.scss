@@ -1,0 +1,98 @@
+.field {
+  @extend %reset;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  &__support {
+    @extend %reset;
+    @extend %click;
+    cursor: text;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $colorDark;
+    font-family: "Regular";
+    z-index: 2;
+    transform-origin: left top;
+    transition: $trans;
+    will-change: transform;
+    & span {
+      color: #e86060;
+      transition: $trans;
+    }
+  }
+  &._active &__support {
+    transform: translate(0, -10px) scale(0.9);
+    color: $colorGrey;
+    & span {
+      color: $colorGrey;
+    }
+  }
+  &__box {
+    @extend %reset;
+    width: 100%;
+    height: 30px;
+    transition: $trans;
+    border-bottom: 1px solid rgba($colorDark, 0.5);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: $colorError;
+      z-index: 2;
+      transition: $trans;
+      opacity: 0;
+    }
+  }
+  &__error {
+    position: absolute;
+    top: 100%;
+    margin-top: 4px;
+    left: 0;
+    z-index: 1;
+    font-size: 12px;
+    font-family: "Regular";
+    color: $colorError;
+  }
+  &._error &__box::before {
+    opacity: 1;
+  }
+  &._area &__box {
+    height: auto;
+    padding-top: 6px;
+  }
+  &._area &__input {
+    min-height: 66px;
+    height: auto;
+    @include media($mediaTabletEnd, $mediaDesktop) {
+      min-height: 40px;
+    }
+    @include media($mediaMobileEnd, $mediaTablet) {
+      min-height: 48px;
+    }
+  }
+  &._height._area &__input {
+    min-height: 88px;
+    @include media(0, $mediaMobile) {
+      padding-top: 16px;
+    }
+  }
+  &__input {
+    @extend %reset;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 1.3;
+    font-family: "Regular";
+    resize: vertical;
+  }
+  &._focus &__box {
+    border-bottom-color: $colorMain;
+  }
+}

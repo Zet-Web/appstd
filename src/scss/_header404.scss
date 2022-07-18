@@ -1,0 +1,97 @@
+.header404 {
+  @extend %reset;
+  @extend %section;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  &__inner {
+    @extend %reset;
+    @extend %inner;
+  }
+  &__items {
+    @extend %reset;
+    @extend %row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+    }
+    @include media(0, $mediaMobile) {
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+    }
+  }
+  &__item {
+    @extend %reset;
+    @extend %col;
+    &._content {
+      width: 392px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        align-items: center;
+      }
+      @include media(0, $mediaMobile) {
+        width: 100%;
+        align-items: center;
+        max-width: 320px;
+      }
+    }
+    &._preview {
+      width: 984px;
+      @include media($mediaMobileEnd, $mediaTablet) {
+        width: 608px;
+        margin-left: -70px;
+        align-items: center;
+      }
+      @include media(0, $mediaMobile) {
+        width: 320px;
+        align-items: center;
+        margin-left: -60px;
+      }
+    }
+  }
+  &__title {
+    @extend %reset;
+    margin-bottom: 36px;
+    max-width: 100%;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      text-align: center;
+    }
+    @include media(0, $mediaMobile) {
+      text-align: center;
+    }
+  }
+  &__text {
+    @extend %reset;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Medium";
+    color: $colorDark;
+    max-width: 100%;
+    @include media($mediaMobileEnd, $mediaTablet) {
+      text-align: center;
+    }
+    @include media(0, $mediaMobile) {
+      text-align: center;
+    }
+    &._grey {
+      font-family: "Regular";
+      color: $colorGrey;
+    }
+    & + & {
+      margin-top: 18px;
+    }
+  }
+  &__button {
+    @extend %reset;
+    width: 254px;
+    height: 60px;
+    margin-top: 50px;
+  }
+  &__image {
+    @extend %reset;
+    width: 100%;
+    margin-left: 74px;
+  }
+}
